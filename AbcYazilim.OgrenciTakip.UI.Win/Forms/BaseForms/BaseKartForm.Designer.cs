@@ -49,11 +49,6 @@
             DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition3 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition1 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnYeni = new DevExpress.XtraBars.BarButtonItem();
             this.btnSil = new DevExpress.XtraBars.BarButtonItem();
@@ -66,11 +61,7 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.myDataLayoutControl1 = new AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls.MyDataLayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myDataLayoutControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -102,7 +93,7 @@
             this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl.ShowQatLocationSelector = false;
             this.ribbonControl.ShowToolbarCustomizeItem = false;
-            this.ribbonControl.Size = new System.Drawing.Size(442, 109);
+            this.ribbonControl.Size = new System.Drawing.Size(696, 109);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
@@ -239,54 +230,17 @@
             this.ribbonStatusBar.ItemLinks.Add(this.statusBarAciklama);
             this.ribbonStatusBar.ItemLinks.Add(this.statusBarKisayol);
             this.ribbonStatusBar.ItemLinks.Add(this.statusBarKisayolAciklama);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 425);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 563);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(442, 24);
-            // 
-            // myDataLayoutControl1
-            // 
-            this.myDataLayoutControl1.Location = new System.Drawing.Point(26, 152);
-            this.myDataLayoutControl1.Name = "myDataLayoutControl1";
-            this.myDataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(590, 86, 650, 400);
-            this.myDataLayoutControl1.OptionsFocus.EnableAutoTabOrder = false;
-            this.myDataLayoutControl1.Root = this.Root;
-            this.myDataLayoutControl1.Size = new System.Drawing.Size(361, 184);
-            this.myDataLayoutControl1.TabIndex = 5;
-            this.myDataLayoutControl1.Text = "myDataLayoutControl1";
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
-            this.Root.Name = "Root";
-            columnDefinition1.SizeType = System.Windows.Forms.SizeType.Absolute;
-            columnDefinition1.Width = 200D;
-            columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition2.Width = 100D;
-            columnDefinition3.SizeType = System.Windows.Forms.SizeType.Absolute;
-            columnDefinition3.Width = 99D;
-            this.Root.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition1,
-            columnDefinition2,
-            columnDefinition3});
-            rowDefinition1.Height = 100D;
-            rowDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition2.Height = 100D;
-            rowDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
-            this.Root.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition1,
-            rowDefinition2});
-            this.Root.Size = new System.Drawing.Size(361, 184);
-            this.Root.TextVisible = false;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(696, 24);
+            this.ribbonStatusBar.Click += new System.EventHandler(this.ribbonStatusBar_Click);
             // 
             // BaseKartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 449);
-            this.Controls.Add(this.myDataLayoutControl1);
+            this.ClientSize = new System.Drawing.Size(696, 587);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
             this.IconOptions.ShowIcon = false;
@@ -296,16 +250,12 @@
             this.ShowInTaskbar = false;
             this.StatusBar = this.ribbonStatusBar;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myDataLayoutControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
@@ -317,7 +267,6 @@
         private DevExpress.XtraBars.BarStaticItem statusBarAciklama;
         private DevExpress.XtraBars.BarStaticItem statusBarKisayol;
         private DevExpress.XtraBars.BarStaticItem statusBarKisayolAciklama;
-        private UserControls.Controls.MyDataLayoutControl myDataLayoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        protected DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
     }
 }

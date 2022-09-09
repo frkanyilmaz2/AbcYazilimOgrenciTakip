@@ -9,18 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
+namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.GeneralForms
 {
-    public partial class BaseKartForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class AnaForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public BaseKartForm()
+        public AnaForm()
         {
             InitializeComponent();
-        }
-
-        private void ribbonStatusBar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
