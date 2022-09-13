@@ -1,6 +1,6 @@
 ﻿namespace AbcYazilim.OgrenciTakip.UI.Win.Navigators
 {
-    partial class LongNavigator
+    partial class longNavigator
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LongNavigator));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(longNavigator));
             this.Navigator = new DevExpress.XtraEditors.ControlNavigator();
             this.imageCollection = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).BeginInit();
@@ -70,12 +70,12 @@
             this.imageCollection.Images.SetKeyName(4, "doublenext_16x16.png");
             this.imageCollection.Images.SetKeyName(5, "doubleprev_16x16.png");
             // 
-            // LongNavigator
+            // longNavigator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Navigator);
-            this.Name = "LongNavigator";
+            this.Name = "longNavigator";
             this.Size = new System.Drawing.Size(477, 24);
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).EndInit();
             this.ResumeLayout(false);
@@ -83,8 +83,7 @@
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.ControlNavigator Navigator;
         private DevExpress.Utils.ImageCollection imageCollection;
+        public DevExpress.XtraEditors.ControlNavigator Navigator;
     }
 }

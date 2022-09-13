@@ -8,8 +8,8 @@
     <ProjectGuid>{A9AD5FC9-6706-4BF5-A915-44686A73B148}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AbcYazilimOgrenciTakip.Bll</RootNamespace>
-    <AssemblyName>AbcYazilimOgrenciTakip.Bll</AssemblyName>
+    <RootNamespace>AbcYazilim.OgrenciTakip.Bll</RootNamespace>
+    <AssemblyName>AbcYazilim.OgrenciTakip.Bll</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

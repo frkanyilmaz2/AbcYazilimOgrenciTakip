@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.Navigators
 {
-    public partial class LongNavigator : UserControl
+    public partial class longNavigator : UserControl
     {
-        public LongNavigator()
+        public longNavigator()
         {
             InitializeComponent();
         }

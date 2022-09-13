@@ -1,6 +1,6 @@
 ﻿namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
 {
-    partial class BaseKartlarForm
+    partial class BaseListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseKartlarForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseListForm));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
@@ -90,9 +90,6 @@
             this.btnCikis = new DevExpress.XtraBars.BarButtonItem();
             this.btnSec = new DevExpress.XtraBars.BarButtonItem();
             this.btnGonder = new DevExpress.XtraBars.BarSubItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.barInsert = new DevExpress.XtraBars.BarStaticItem();
             this.barInsertAciklama = new DevExpress.XtraBars.BarStaticItem();
             this.barDelete = new DevExpress.XtraBars.BarStaticItem();
@@ -114,6 +111,16 @@
             this.barCikis = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.btnAktifPasifKartlar = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.btnExcelDosyalari = new DevExpress.XtraBars.BarSubItem();
+            this.btnStandartExcellDosyasi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnFormatliExcellDosyasi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnFormatsizExcellDosyasi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnWordDosyasi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPdfDosyasi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTextDosyasi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,9 +162,16 @@
             this.barGonderAciklama,
             this.barCikis,
             this.barStaticItem2,
-            this.btnAktifPasifKartlar});
+            this.btnAktifPasifKartlar,
+            this.btnExcelDosyalari,
+            this.btnStandartExcellDosyasi,
+            this.btnFormatliExcellDosyasi,
+            this.btnFormatsizExcellDosyasi,
+            this.btnWordDosyasi,
+            this.btnPdfDosyasi,
+            this.btnTextDosyasi});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 35;
+            this.ribbonControl.MaxItemId = 42;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -350,6 +364,11 @@
             this.btnGonder.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGonder.ImageOptions.Image")));
             this.btnGonder.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGonder.ImageOptions.LargeImage")));
             this.btnGonder.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
+            this.btnGonder.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnExcelDosyalari),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnWordDosyasi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnPdfDosyasi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnTextDosyasi)});
             this.btnGonder.Name = "btnGonder";
             toolTipTitleItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image16")));
             toolTipTitleItem9.Text = "( F12 )";
@@ -362,56 +381,6 @@
             superToolTip9.Items.Add(toolTipSeparatorItem9);
             superToolTip9.Items.Add(toolTipItem18);
             this.btnGonder.SuperTip = superToolTip9;
-            // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnYeni);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnSil);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnSec);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnDuzelt);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnYenile);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnFiltrele);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnKolonlar);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnYazdir);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnGonder);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnCikis);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.barInsert);
-            this.ribbonStatusBar.ItemLinks.Add(this.barInsertAciklama);
-            this.ribbonStatusBar.ItemLinks.Add(this.barDelete, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barDeleteAciklama);
-            this.ribbonStatusBar.ItemLinks.Add(this.barEnter, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barEnterAciklama);
-            this.ribbonStatusBar.ItemLinks.Add(this.barDuzelt, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barDuzeltAciklama);
-            this.ribbonStatusBar.ItemLinks.Add(this.barYenile, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barYenileAciklama);
-            this.ribbonStatusBar.ItemLinks.Add(this.barFiltrele, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barFiltreleAciklama);
-            this.ribbonStatusBar.ItemLinks.Add(this.barKolonlar, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barKolonlarAciklama);
-            this.ribbonStatusBar.ItemLinks.Add(this.barYazdir, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barYazdirAciklama);
-            this.ribbonStatusBar.ItemLinks.Add(this.barGonder, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barGonderAciklama);
-            this.ribbonStatusBar.ItemLinks.Add(this.barCikis);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2);
-            this.ribbonStatusBar.ItemLinks.Add(this.btnAktifPasifKartlar);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 518);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1325, 24);
             // 
             // barInsert
             // 
@@ -606,6 +575,122 @@
             superToolTip10.Items.Add(toolTipItem20);
             this.btnAktifPasifKartlar.SuperTip = superToolTip10;
             // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "ribbonPage1";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnYeni);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnSil);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnSec);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnDuzelt);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnYenile);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnFiltrele);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnKolonlar);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnYazdir);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnGonder);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnCikis);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.barInsert);
+            this.ribbonStatusBar.ItemLinks.Add(this.barInsertAciklama);
+            this.ribbonStatusBar.ItemLinks.Add(this.barDelete, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barDeleteAciklama);
+            this.ribbonStatusBar.ItemLinks.Add(this.barEnter, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barEnterAciklama);
+            this.ribbonStatusBar.ItemLinks.Add(this.barDuzelt, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barDuzeltAciklama);
+            this.ribbonStatusBar.ItemLinks.Add(this.barYenile, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barYenileAciklama);
+            this.ribbonStatusBar.ItemLinks.Add(this.barFiltrele, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barFiltreleAciklama);
+            this.ribbonStatusBar.ItemLinks.Add(this.barKolonlar, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barKolonlarAciklama);
+            this.ribbonStatusBar.ItemLinks.Add(this.barYazdir, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barYazdirAciklama);
+            this.ribbonStatusBar.ItemLinks.Add(this.barGonder, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barGonderAciklama);
+            this.ribbonStatusBar.ItemLinks.Add(this.barCikis);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2);
+            this.ribbonStatusBar.ItemLinks.Add(this.btnAktifPasifKartlar);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 518);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbonControl;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1325, 24);
+            // 
+            // btnExcelDosyalari
+            // 
+            this.btnExcelDosyalari.Caption = "Excell Dosyaları";
+            this.btnExcelDosyalari.Id = 35;
+            this.btnExcelDosyalari.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelDosyalari.ImageOptions.Image")));
+            this.btnExcelDosyalari.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnExcelDosyalari.ImageOptions.LargeImage")));
+            this.btnExcelDosyalari.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnStandartExcellDosyasi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnFormatliExcellDosyasi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnFormatsizExcellDosyasi)});
+            this.btnExcelDosyalari.Name = "btnExcelDosyalari";
+            // 
+            // btnStandartExcellDosyasi
+            // 
+            this.btnStandartExcellDosyasi.Caption = "Excell Dosyası (Standart)";
+            this.btnStandartExcellDosyasi.Id = 36;
+            this.btnStandartExcellDosyasi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnStandartExcellDosyasi.ImageOptions.Image")));
+            this.btnStandartExcellDosyasi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnStandartExcellDosyasi.ImageOptions.LargeImage")));
+            this.btnStandartExcellDosyasi.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S));
+            this.btnStandartExcellDosyasi.Name = "btnStandartExcellDosyasi";
+            // 
+            // btnFormatliExcellDosyasi
+            // 
+            this.btnFormatliExcellDosyasi.Caption = "Excell Dosyası (Formatlı)";
+            this.btnFormatliExcellDosyasi.Id = 37;
+            this.btnFormatliExcellDosyasi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFormatliExcellDosyasi.ImageOptions.Image")));
+            this.btnFormatliExcellDosyasi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFormatliExcellDosyasi.ImageOptions.LargeImage")));
+            this.btnFormatliExcellDosyasi.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F));
+            this.btnFormatliExcellDosyasi.Name = "btnFormatliExcellDosyasi";
+            // 
+            // btnFormatsizExcellDosyasi
+            // 
+            this.btnFormatsizExcellDosyasi.Caption = "Excell Dosyası (Formatsız)";
+            this.btnFormatsizExcellDosyasi.Id = 38;
+            this.btnFormatsizExcellDosyasi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFormatsizExcellDosyasi.ImageOptions.Image")));
+            this.btnFormatsizExcellDosyasi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFormatsizExcellDosyasi.ImageOptions.LargeImage")));
+            this.btnFormatsizExcellDosyasi.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z));
+            this.btnFormatsizExcellDosyasi.Name = "btnFormatsizExcellDosyasi";
+            // 
+            // btnWordDosyasi
+            // 
+            this.btnWordDosyasi.Caption = "Word Dosyası";
+            this.btnWordDosyasi.Id = 39;
+            this.btnWordDosyasi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWordDosyasi.ImageOptions.Image")));
+            this.btnWordDosyasi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnWordDosyasi.ImageOptions.LargeImage")));
+            this.btnWordDosyasi.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W));
+            this.btnWordDosyasi.Name = "btnWordDosyasi";
+            // 
+            // btnPdfDosyasi
+            // 
+            this.btnPdfDosyasi.Caption = "PDF Dosyası";
+            this.btnPdfDosyasi.Id = 40;
+            this.btnPdfDosyasi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPdfDosyasi.ImageOptions.Image")));
+            this.btnPdfDosyasi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPdfDosyasi.ImageOptions.LargeImage")));
+            this.btnPdfDosyasi.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P));
+            this.btnPdfDosyasi.Name = "btnPdfDosyasi";
+            // 
+            // btnTextDosyasi
+            // 
+            this.btnTextDosyasi.Caption = "Text Dosyası";
+            this.btnTextDosyasi.Id = 41;
+            this.btnTextDosyasi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTextDosyasi.ImageOptions.Image")));
+            this.btnTextDosyasi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTextDosyasi.ImageOptions.LargeImage")));
+            this.btnTextDosyasi.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G), (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T));
+            this.btnTextDosyasi.Name = "btnTextDosyasi";
+            // 
             // BaseKartlarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,5 +746,12 @@
         private DevExpress.XtraBars.BarStaticItem barCikis;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.BarButtonItem btnAktifPasifKartlar;
+        private DevExpress.XtraBars.BarSubItem btnExcelDosyalari;
+        private DevExpress.XtraBars.BarButtonItem btnStandartExcellDosyasi;
+        private DevExpress.XtraBars.BarButtonItem btnFormatliExcellDosyasi;
+        private DevExpress.XtraBars.BarButtonItem btnFormatsizExcellDosyasi;
+        private DevExpress.XtraBars.BarButtonItem btnWordDosyasi;
+        private DevExpress.XtraBars.BarButtonItem btnPdfDosyasi;
+        private DevExpress.XtraBars.BarButtonItem btnTextDosyasi;
     }
 }

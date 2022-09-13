@@ -2,9 +2,9 @@
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
 {
-    public partial class OkulKartlari : BaseKartlarForm
+    public partial class OkulEditForm : BaseEditForm
     {
-        public OkulKartlari()
+        public OkulEditForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
 {
-    partial class OkulKartlari
+    partial class OkulListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,6 @@
             this.tablo = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridView();
             this.colId = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
             this.colKod = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
-            this.longNavigator1 = new AbcYazilim.OgrenciTakip.UI.Win.Navigators.LongNavigator();
             this.colOkulAdi = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
             this.colIlAdi = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
             this.colIlceAdi = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
@@ -63,7 +62,7 @@
             this.grid.MainView = this.tablo;
             this.grid.MenuManager = this.ribbonControl;
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(1296, 772);
+            this.grid.Size = new System.Drawing.Size(1296, 796);
             this.grid.TabIndex = 2;
             this.grid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tablo});
@@ -133,14 +132,6 @@
             this.colKod.VisibleIndex = 0;
             this.colKod.Width = 130;
             // 
-            // longNavigator1
-            // 
-            this.longNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.longNavigator1.Location = new System.Drawing.Point(0, 881);
-            this.longNavigator1.Name = "longNavigator1";
-            this.longNavigator1.Size = new System.Drawing.Size(1296, 24);
-            this.longNavigator1.TabIndex = 3;
-            // 
             // colOkulAdi
             // 
             this.colOkulAdi.Caption = "Okul Adı";
@@ -193,18 +184,16 @@
             this.colAciklama.VisibleIndex = 4;
             this.colAciklama.Width = 500;
             // 
-            // OkulKartlari
+            // OkulListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1296, 929);
             this.Controls.Add(this.grid);
-            this.Controls.Add(this.longNavigator1);
             this.IconOptions.ShowIcon = false;
-            this.Name = "OkulKartlari";
-            this.Text = "OkulKartlariForm";
+            this.Name = "OkulListForm";
+            this.Text = "Okul Kartları";
             this.Controls.SetChildIndex(this.ribbonControl, 0);
-            this.Controls.SetChildIndex(this.longNavigator1, 0);
             this.Controls.SetChildIndex(this.grid, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
@@ -224,6 +213,6 @@
         private Grid.MyGridColumn colIlAdi;
         private Grid.MyGridColumn colIlceAdi;
         private Grid.MyGridColumn colAciklama;
-        private Navigators.LongNavigator longNavigator1;
+        private Navigators.longNavigator longNavigator;
     }
 }

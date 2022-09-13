@@ -23,5 +23,15 @@ namespace AbcYazilim.OgrenciTakip.Common.Messages
         {
             return HayirSeciliEvetHayir($"Seçilen {kartAdi} silinecektir. Onaylıyor musun keke?", "Silme Onayı");
         }
+
+
+        public static void UyariMesaji(string uyariMesaji)
+        {
+            XtraMessageBox.Show(uyariMesaji, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        public static void KartSecmemeUyariMesaji()
+        {
+            UyariMesaji("Lütfen bir kart seçiniz.");
+        }
     }
 }
