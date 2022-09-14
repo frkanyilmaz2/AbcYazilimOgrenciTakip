@@ -10,9 +10,9 @@ namespace AbcYazilimOgrenciTakip.Bll.Functions
 {
     public static class GeneralFunctions
     {
-        public static IList<string> DegisenAlanlariGetir<T>(this T oldEntity, T currentEntity)
+        public static List<string> DegisenAlanlariGetir<T>(this T oldEntity, T currentEntity)
         {
-            IList<string> alanlar = new List<string>();
+            List<string> alanlar = new List<string>();
 
             foreach (var prop in currentEntity.GetType().GetProperties())
             {

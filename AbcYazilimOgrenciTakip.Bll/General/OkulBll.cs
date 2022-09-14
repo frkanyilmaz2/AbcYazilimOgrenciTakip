@@ -9,10 +9,11 @@ using System.Linq.Expressions;
 using AbcYazilim.OgrenciTakip.Common.Enums;
 using System.Windows.Forms;
 using System.Linq;
+using AbcYazilim.OgrenciTakip.Bll.Interfaces;
 
 namespace AbcYazilimOgrenciTakip.Bll.General
 {
-    public class OkulBll : BaseBll<Okul, OgrenciTakipContext>
+    public class OkulBll : BaseBll<Okul, OgrenciTakipContext>,IBaseGenelBll
     {
         public OkulBll() { }
 
@@ -56,6 +57,11 @@ namespace AbcYazilimOgrenciTakip.Bll.General
         public bool Delete(BaseEntity entity)
         {
             return BaseDelete(entity, KartTuru.Okul);
+        }
+
+        public string YeniKodVer()
+        {
+            return BaseYeniKodVer(KartTuru.Okul, x => x.Kod);
         }
     }
 }

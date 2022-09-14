@@ -86,10 +86,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             DialogResult = DialogResult.OK;
             Close();
         }
-        private void Listele()
-        {
-            throw new NotImplementedException();
-        }
+        protected virtual void Listele() { }
 
         private void FiltreSec()
         {

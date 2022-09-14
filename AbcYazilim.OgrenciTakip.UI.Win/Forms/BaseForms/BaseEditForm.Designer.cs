@@ -49,6 +49,11 @@
             DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnYeni = new DevExpress.XtraBars.BarButtonItem();
             this.btnSil = new DevExpress.XtraBars.BarButtonItem();
@@ -106,11 +111,9 @@
             this.btnYeni.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnYeni.ImageOptions.LargeImage")));
             this.btnYeni.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Insert));
             this.btnYeni.Name = "btnYeni";
-            toolTipTitleItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             toolTipTitleItem1.Text = "( Ctrl + Ins )";
             toolTipItem1.Text = "Yeni kart ekle";
             toolTipItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             toolTipItem2.Text = "<b>Yeni kart ekler.</b>";
             superToolTip1.Items.Add(toolTipTitleItem1);
             superToolTip1.Items.Add(toolTipItem1);
@@ -127,11 +130,9 @@
             this.btnSil.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Delete);
             this.btnSil.Name = "btnSil";
             toolTipTitleItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             toolTipTitleItem2.Text = "( Delete )";
             toolTipItem3.Text = "Seçili kartı sil";
             toolTipItem4.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             toolTipItem4.Text = "<b>Seçili kartı siler</b>";
             superToolTip2.Items.Add(toolTipTitleItem2);
             superToolTip2.Items.Add(toolTipItem3);
@@ -147,11 +148,9 @@
             this.btnKaydet.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnKaydet.ImageOptions.LargeImage")));
             this.btnKaydet.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F2);
             this.btnKaydet.Name = "btnKaydet";
-            toolTipTitleItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             toolTipTitleItem3.Text = "( F2 )";
             toolTipItem5.Text = "Seçili kartı kaydet";
             toolTipItem6.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             toolTipItem6.Text = "<b>Seçili kartı kaydeder.</b>";
             superToolTip3.Items.Add(toolTipTitleItem3);
             superToolTip3.Items.Add(toolTipItem5);
@@ -167,11 +166,9 @@
             this.btnGeriAl.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGeriAl.ImageOptions.LargeImage")));
             this.btnGeriAl.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z));
             this.btnGeriAl.Name = "btnGeriAl";
-            toolTipTitleItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
             toolTipTitleItem4.Text = "( Ctrl + Z )";
             toolTipItem7.Text = "Geri alma";
             toolTipItem8.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
             toolTipItem8.Text = "<b>Yapılan değişiklikleri geri alır</b>";
             superToolTip4.Items.Add(toolTipTitleItem4);
             superToolTip4.Items.Add(toolTipItem7);
@@ -182,17 +179,27 @@
             // btnCikis
             // 
             this.btnCikis.Caption = "Çıkış";
+            this.btnCikis.Description = "Esc";
             this.btnCikis.Id = 5;
             this.btnCikis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCikis.ImageOptions.Image")));
             this.btnCikis.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCikis.ImageOptions.LargeImage")));
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.ShortcutKeyDisplayString = "Esc";
+            toolTipTitleItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            toolTipTitleItem5.Text = "( Esc )";
+            toolTipItem9.Text = "Çıkış yapma";
+            toolTipItem10.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            toolTipItem10.Text = "<b>Çıkış yapmak için ESC basınız.</b>";
+            superToolTip5.Items.Add(toolTipTitleItem5);
+            superToolTip5.Items.Add(toolTipItem9);
+            superToolTip5.Items.Add(toolTipSeparatorItem5);
+            superToolTip5.Items.Add(toolTipItem10);
+            this.btnCikis.SuperTip = superToolTip5;
             // 
             // statusBarAciklama
             // 
             this.statusBarAciklama.Id = 6;
-            this.statusBarAciklama.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("statusBarAciklama.ImageOptions.Image")));
-            this.statusBarAciklama.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("statusBarAciklama.ImageOptions.LargeImage")));
             this.statusBarAciklama.Name = "statusBarAciklama";
             this.statusBarAciklama.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
@@ -234,9 +241,8 @@
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(696, 24);
-            this.ribbonStatusBar.Click += new System.EventHandler(this.ribbonStatusBar_Click);
             // 
-            // BaseKartForm
+            // BaseEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -245,7 +251,7 @@
             this.Controls.Add(this.ribbonControl);
             this.IconOptions.ShowIcon = false;
             this.MinimizeBox = false;
-            this.Name = "BaseKartForm";
+            this.Name = "BaseEditForm";
             this.Ribbon = this.ribbonControl;
             this.ShowInTaskbar = false;
             this.StatusBar = this.ribbonStatusBar;

@@ -3,6 +3,8 @@ using AbcYazilimOgrenciTakip.Bll.General;
 using AbcYazilim.OgrenciTakip.Common.Enums;
 using AbcYazilim.OgrenciTakip.UI.Win.Show;
 using AbcYazilim.OgrenciTakip.UI.Win.Navigators;
+using AbcYazilim.OgrenciTakip.UI.Win.Functions;
+using AbcYazilim.OgrenciTakip.Model.Entities;
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
 {
@@ -22,8 +24,10 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
             KartTuru = KartTuru.Okul;
             FormShow = new ShowEditForms<OkulEditForm>();
             Navigator = longNavigator.Navigator;
-
-
+        }
+        protected override void Listele()
+        {
+            tablo.GridControl.DataSource = ((OkulBll)Bll).List(FilterFunctions.Filter<Okul>(AktifKartlariGoster));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AbcYazilim.OgrenciTakip.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -17,7 +18,8 @@ namespace AbcYazilim.Dal.Base
         TResult Find<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T,TResult>> selector); 
         // biz sana T türünde bir sorgu gönderecez eğer doğru dönerse -sorgunun karşılığında bir value olduğu anlamına geliyor- o valueyi geri dönder hangi tipte geri döndüreceğini sorgu esnasında verecez T tipi
         IQueryable<TResult> Select <TResult>(Expression<Func<T, bool>> filter, Expression<Func<T,TResult>> selector);
-    
-    
+        string YeniKodVer(KartTuru kartTuru, Expression<Func<T, string>> filter, Expression<Func<T, bool>> where = null);
+
+
     }
 }
