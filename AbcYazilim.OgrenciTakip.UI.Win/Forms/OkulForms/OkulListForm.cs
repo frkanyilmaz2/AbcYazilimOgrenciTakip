@@ -21,7 +21,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
         protected override void DegiskenleriDoldur()
         {
             Tablo = tablo;
-            KartTuru = KartTuru.Okul;
+            BaseKartTuru = KartTuru.Okul;
             FormShow = new ShowEditForms<OkulEditForm>();
             Navigator = longNavigator.Navigator;
         }

@@ -1,4 +1,5 @@
 ﻿using AbcYazilim.OgrenciTakip.Common.Enums;
+using AbcYazilim.OgrenciTakip.Model.Entities.Base;
 using AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,19 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Show
             frm.Yukle();
             frm.Show();
 
+        }
+
+        public static BaseEntity ShowDialogListForm(KartTuru kartTuru,long? seciliGelecekId,params object[] prm) 
+        {
+            //Yetki kontrolü
+            using (var frm = (TForm)Activator.CreateInstance(typeof(TForm), prm))
+            {
+                frm.SeciliGelecekId = seciliGelecekId;
+                frm.Yukle();
+                frm.ShowDialog();
+
+                return frm.DialogResult == DialogResult.OK ? frm.SelectedEntity : null;
+            }
         }
     }
 }

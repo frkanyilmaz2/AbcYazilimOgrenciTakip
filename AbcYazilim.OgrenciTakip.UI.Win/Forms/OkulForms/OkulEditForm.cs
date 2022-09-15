@@ -4,6 +4,7 @@ using AbcYazilim.OgrenciTakip.Model.Entities;
 using AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms;
 using AbcYazilim.OgrenciTakip.UI.Win.Functions;
 using AbcYazilimOgrenciTakip.Bll.General;
+using DevExpress.XtraEditors;
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
 {
@@ -15,16 +16,16 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
 
             DataLayoutControl = myDataLayoutControl;
             Bll = new OkulBll(myDataLayoutControl);
-            KartTuru = KartTuru.Okul;
+            BaseKartTuru = KartTuru.Okul;
             EventsLoad();
         }
 
         protected internal override void Yukle()
         {
-            OldEntity = IslemTuru == IslemTuru.EntityInsert ? new OkulS() : ((OkulBll)Bll).Single(FilterFunctions.Filter<Okul>(Id));
+            OldEntity = BaseIslemTuru == IslemTuru.EntityInsert ? new OkulS() : ((OkulBll)Bll).Single(FilterFunctions.Filter<Okul>(Id));
             NesneyiKontrollereBagla();
 
-            if (IslemTuru != IslemTuru.EntityInsert) return;
+            if (BaseIslemTuru != IslemTuru.EntityInsert) return;
             txtKod.Text = ((OkulBll)Bll).YeniKodVer();
             txtOkulAdi.Focus();
         }
@@ -58,6 +59,18 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
 
             ButonEnabledDurumu();
 
+        }
+        protected override void SecimYap(object sender)
+        {
+            if (!(sender is ButtonEdit)) return;
+
+            using (var sec = new SelectFunctions())
+            {
+                if (sender == btnIl)
+                    sec.Sec(btnIl);
+                else if(sender == btnIlce) 
+                    sec.Sec(btnIlce,btnIl);
+            }
         }
     }
 }

@@ -1,33 +1,28 @@
 ﻿using AbcYazilim.OgrenciTakip.Common.Enums;
+using AbcYazilim.OgrenciTakip.Model.Entities;
 using AbcYazilim.OgrenciTakip.Model.Entities.Base;
 using AbcYazilim.OgrenciTakip.UI.Win.Functions;
 using AbcYazilim.OgrenciTakip.UI.Win.Show.Interfaces;
+using AbcYazilimOgrenciTakip.Bll.General;
 using AbcYazilimOgrenciTakip.Bll.Interfaces;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseListForm : RibbonForm
     {
         protected IBaseFormShow FormShow;
-        protected KartTuru KartTuru;
+        protected KartTuru BaseKartTuru;
         protected internal GridView Tablo;
         protected bool AktifKartlariGoster = true;
         protected internal bool MultiSelect;
         protected internal BaseEntity SelectedEntity;
         protected IBaseBll Bll;
         protected ControlNavigator Navigator;
+        protected internal long? SeciliGelecekId;
 
         public BaseListForm()
         {
@@ -68,9 +63,9 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             
         }
 
-        private void ShowEditForm(long id)
+        protected virtual void ShowEditForm(long id)
         {
-            var result = FormShow.ShowDialogEditForm(KartTuru,id);
+            var result = FormShow.ShowDialogEditForm(BaseKartTuru,id);
         }
         private void EntityDelete()
         {
@@ -86,7 +81,10 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             DialogResult = DialogResult.OK;
             Close();
         }
-        protected virtual void Listele() { }
+        protected virtual void Listele() 
+        {
+            //Tablo.GridControl.DataSource = ((OkulBll)Bll).List(FilterFunctions.Filter<Okul>(AktifKartlariGoster));
+        }
 
         private void FiltreSec()
         {

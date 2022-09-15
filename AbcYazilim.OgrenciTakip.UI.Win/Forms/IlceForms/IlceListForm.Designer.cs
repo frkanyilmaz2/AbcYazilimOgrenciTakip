@@ -1,6 +1,6 @@
-﻿namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
+﻿namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.IlceForms
 {
-    partial class OkulListForm
+    partial class IlceListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,6 @@
             this.tablo = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridView();
             this.colId = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
             this.colKod = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
-            this.colOkulAdi = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
-            this.colIlAdi = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
             this.colIlceAdi = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
             this.colAciklama = new AbcYazilim.OgrenciTakip.UI.Win.Grid.MyGridColumn();
             this.longNavigator = new AbcYazilim.OgrenciTakip.UI.Win.Navigators.longNavigator();
@@ -53,7 +51,7 @@
             this.ribbonControl.SearchEditItem.EditWidth = 150;
             this.ribbonControl.SearchEditItem.Id = -5000;
             this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbonControl.Size = new System.Drawing.Size(1296, 109);
+            this.ribbonControl.Size = new System.Drawing.Size(954, 109);
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
             // grid
@@ -63,7 +61,7 @@
             this.grid.MainView = this.tablo;
             this.grid.MenuManager = this.ribbonControl;
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(1296, 772);
+            this.grid.Size = new System.Drawing.Size(954, 354);
             this.grid.TabIndex = 2;
             this.grid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tablo});
@@ -83,8 +81,6 @@
             this.tablo.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
             this.colKod,
-            this.colOkulAdi,
-            this.colIlAdi,
             this.colIlceAdi,
             this.colAciklama});
             this.tablo.GridControl = this.grid;
@@ -105,7 +101,7 @@
             this.tablo.StatusBarAciklama = null;
             this.tablo.StatusBarKisayol = null;
             this.tablo.StatusBarKisayolAciklama = null;
-            this.tablo.ViewCaption = "Okul Kartları";
+            this.tablo.ViewCaption = "İlçe Kartları";
             // 
             // colId
             // 
@@ -131,37 +127,11 @@
             this.colKod.StatusBarKisayolAciklama = null;
             this.colKod.Visible = true;
             this.colKod.VisibleIndex = 0;
-            this.colKod.Width = 130;
-            // 
-            // colOkulAdi
-            // 
-            this.colOkulAdi.Caption = "Okul Adı";
-            this.colOkulAdi.FieldName = "OkulAdi";
-            this.colOkulAdi.Name = "colOkulAdi";
-            this.colOkulAdi.OptionsColumn.AllowEdit = false;
-            this.colOkulAdi.StatusBarAciklama = null;
-            this.colOkulAdi.StatusBarKisayol = null;
-            this.colOkulAdi.StatusBarKisayolAciklama = null;
-            this.colOkulAdi.Visible = true;
-            this.colOkulAdi.VisibleIndex = 1;
-            this.colOkulAdi.Width = 150;
-            // 
-            // colIlAdi
-            // 
-            this.colIlAdi.Caption = "İl";
-            this.colIlAdi.FieldName = "IlAdi";
-            this.colIlAdi.Name = "colIlAdi";
-            this.colIlAdi.OptionsColumn.AllowEdit = false;
-            this.colIlAdi.StatusBarAciklama = null;
-            this.colIlAdi.StatusBarKisayol = null;
-            this.colIlAdi.StatusBarKisayolAciklama = null;
-            this.colIlAdi.Visible = true;
-            this.colIlAdi.VisibleIndex = 2;
-            this.colIlAdi.Width = 150;
+            this.colKod.Width = 100;
             // 
             // colIlceAdi
             // 
-            this.colIlceAdi.Caption = "İlçe";
+            this.colIlceAdi.Caption = "İlçe Adı";
             this.colIlceAdi.FieldName = "IlceAdi";
             this.colIlceAdi.Name = "colIlceAdi";
             this.colIlceAdi.OptionsColumn.AllowEdit = false;
@@ -169,8 +139,8 @@
             this.colIlceAdi.StatusBarKisayol = null;
             this.colIlceAdi.StatusBarKisayolAciklama = null;
             this.colIlceAdi.Visible = true;
-            this.colIlceAdi.VisibleIndex = 3;
-            this.colIlceAdi.Width = 150;
+            this.colIlceAdi.VisibleIndex = 1;
+            this.colIlceAdi.Width = 250;
             // 
             // colAciklama
             // 
@@ -182,27 +152,27 @@
             this.colAciklama.StatusBarKisayol = null;
             this.colAciklama.StatusBarKisayolAciklama = null;
             this.colAciklama.Visible = true;
-            this.colAciklama.VisibleIndex = 4;
-            this.colAciklama.Width = 500;
+            this.colAciklama.VisibleIndex = 2;
+            this.colAciklama.Width = 450;
             // 
             // longNavigator
             // 
             this.longNavigator.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.longNavigator.Location = new System.Drawing.Point(0, 881);
+            this.longNavigator.Location = new System.Drawing.Point(0, 463);
             this.longNavigator.Name = "longNavigator";
-            this.longNavigator.Size = new System.Drawing.Size(1296, 24);
+            this.longNavigator.Size = new System.Drawing.Size(954, 24);
             this.longNavigator.TabIndex = 3;
             // 
-            // OkulListForm
+            // IlceListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1296, 929);
+            this.ClientSize = new System.Drawing.Size(954, 511);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.longNavigator);
             this.IconOptions.ShowIcon = false;
-            this.Name = "OkulListForm";
-            this.Text = "Okul Kartları";
+            this.Name = "IlceListForm";
+            this.Text = "İlçe Kartları";
             this.Controls.SetChildIndex(this.ribbonControl, 0);
             this.Controls.SetChildIndex(this.longNavigator, 0);
             this.Controls.SetChildIndex(this.grid, 0);
@@ -220,10 +190,8 @@
         private Grid.MyGridView tablo;
         private Grid.MyGridColumn colId;
         private Grid.MyGridColumn colKod;
-        private Grid.MyGridColumn colOkulAdi;
-        private Grid.MyGridColumn colIlAdi;
+        private Navigators.longNavigator longNavigator;
         private Grid.MyGridColumn colIlceAdi;
         private Grid.MyGridColumn colAciklama;
-        private Navigators.longNavigator longNavigator;
     }
 }

@@ -5,28 +5,21 @@ using AbcYazilim.OgrenciTakip.Model.Entities.Base;
 using AbcYazilim.OgrenciTakip.UI.Win.Functions;
 using AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls;
 using AbcYazilimOgrenciTakip.Bll.Interfaces;
-using DevExpress.Mvvm.Native;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseEditForm : RibbonForm
     {
-        protected internal IslemTuru IslemTuru;
+        protected internal IslemTuru BaseIslemTuru;
         protected internal long Id;
         protected internal bool RefreshYapilacak;
         protected MyDataLayoutControl DataLayoutControl;
+        protected MyDataLayoutControl[] DataLayoutControls;
         protected IBaseBll Bll;
-        protected KartTuru KartTuru;
+        protected KartTuru BaseKartTuru;
         protected BaseEntity OldEntity;
         protected BaseEntity CurrentEntity;
         protected bool IsLoaded;
@@ -54,6 +47,78 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             // form events
             Load += BaseEditForm_Load;
 
+            void ControlEvents(Control control)
+            {
+                control.KeyDown += Control_KeyDown;
+               
+                
+                switch (control)
+                {
+                    case MyButtonEdit edt:
+                        edt.IdChanged += Control_IdChanged;
+                        edt.ButtonClick += Control_ButtonClick;
+                        edt.DoubleClick += Control_DoubleClick;
+                        break;
+                    
+                    case BaseEdit edt:
+                        edt.EditValueChanged += Control_EditValueChanged;
+                        break;
+                  
+                }
+            }
+            if (DataLayoutControls == null)
+            {
+                if (DataLayoutControl == null) return;
+                foreach (Control ctrl in DataLayoutControl.Controls)
+                    ControlEvents(ctrl);
+            }
+            else
+                foreach (var layout in DataLayoutControls)
+                    foreach (Control ctrl in layout.Controls)
+                        ControlEvents(ctrl);
+                
+        }
+
+        private void Control_EditValueChanged(object? sender, EventArgs e)
+        {
+            if (!IsLoaded) return;
+            GuncelNesneOlustur();
+        }
+
+        private void Control_DoubleClick(object? sender, EventArgs e)
+        {
+            SecimYap(sender);
+        }
+
+        private void Control_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            SecimYap(sender);
+        }
+
+        private void Control_IdChanged(object? sender, IdChangedEventArgs e)
+        {
+            if (!IsLoaded) return;
+            GuncelNesneOlustur();
+        }
+
+        private void Control_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                Close();
+            if (sender is MyButtonEdit edt)
+                switch (e.KeyCode)
+                {
+                    case Keys.Delete when e.Control && e.Shift:
+                        edt.Id = null;
+                        edt.EditValue = null;
+                        break;
+
+                    case Keys.F4:
+                    case Keys.Down when e.Modifiers == Keys.Alt:
+                        SecimYap(edt);
+                        break;
+
+                }
         }
 
         private void BaseEditForm_Load(object? sender, EventArgs e)
@@ -62,7 +127,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             GuncelNesneOlustur();
             //SablonYukle();
             //ButonGizleGoster();
-            Id = IslemTuru.IdOlustur(OldEntity); 
+            Id = BaseIslemTuru.IdOlustur(OldEntity); 
 
             //Güncelleme Yapılacak.
 
@@ -73,7 +138,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             if (e.Item == btnYeni)
             {
                 //Yetki kontrolü
-                IslemTuru = IslemTuru.EntityInsert;
+                BaseIslemTuru = IslemTuru.EntityInsert;
                 Yukle();
             }
 
@@ -95,6 +160,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
 
         }
 
+        protected virtual void SecimYap(object sender) { }
         private void EntityDelete()
         {
             throw new NotImplementedException();
@@ -118,11 +184,11 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                     ButonEnabledDurumu();
 
                     if (KayitSonrasiFormuKapat) Close();
-                    else IslemTuru = IslemTuru == IslemTuru.EntityInsert ? IslemTuru.EntityUpdate : IslemTuru;
+                    else BaseIslemTuru = BaseIslemTuru == IslemTuru.EntityInsert ? IslemTuru.EntityUpdate : BaseIslemTuru;
 
                     return true;
                 }
-                switch (IslemTuru)
+                switch (BaseIslemTuru)
                 {
                     case IslemTuru.EntityInsert:
                         if (EntityInsert()) return KayitSonrasiIslemler();
