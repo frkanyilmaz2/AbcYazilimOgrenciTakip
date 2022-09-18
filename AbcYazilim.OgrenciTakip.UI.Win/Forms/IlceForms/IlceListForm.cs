@@ -25,6 +25,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.IlceForms
             Tablo = tablo;
             BaseKartTuru = KartTuru.Il;
             Navigator = longNavigator.Navigator;
+            Text = Text + $" - ( {_ilAdi} )";
         }
         protected override void Listele()
         {
@@ -33,8 +34,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.IlceForms
         protected override void ShowEditForm(long id)
         {
             var result = new ShowEditForms<IlceEditForm>().ShowDialogEditForm(KartTuru.Ilce,id,_ilId,_ilAdi);
-            // işlem yapılacak.
-
+            ShowEditFormDefault(result);
         }
     }
 }

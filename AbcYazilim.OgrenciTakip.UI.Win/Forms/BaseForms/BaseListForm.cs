@@ -1,4 +1,5 @@
-﻿using AbcYazilim.OgrenciTakip.Common.Enums;
+﻿using AbcYazilim.OgrenciTakip.Bll.Interfaces;
+using AbcYazilim.OgrenciTakip.Common.Enums;
 using AbcYazilim.OgrenciTakip.Model.Entities;
 using AbcYazilim.OgrenciTakip.Model.Entities.Base;
 using AbcYazilim.OgrenciTakip.UI.Win.Functions;
@@ -38,9 +39,37 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             //table events
             Tablo.DoubleClick += Tablo_DoubleClick;
             Tablo.KeyDown += Tablo_KeyDown;
+            Tablo.MouseUp += Tablo_MouseUp;
 
             //form events
 
+            Shown += BaseListForm_Shown;
+
+        }
+
+        private void Tablo_MouseUp(object? sender, MouseEventArgs e)
+        {
+            e.SagMenuGoster(sagMenu);
+        }
+
+        private void BaseListForm_Shown(object? sender, EventArgs e)
+        {
+            Tablo.Focus();
+            //ButonGizleGoster();
+           // SutunGizleGoster();
+
+            if (IsMdiChild || !SeciliGelecekId.HasValue) return; //SeciliGelecekId == null) return;
+            Tablo.RowFocus("Id",SeciliGelecekId);
+        }
+
+        private void SutunGizleGoster()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButonGizleGoster()
+        {
+           
         }
 
         protected internal void Yukle()
@@ -66,9 +95,23 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
         protected virtual void ShowEditForm(long id)
         {
             var result = FormShow.ShowDialogEditForm(BaseKartTuru,id);
+            ShowEditFormDefault(result);
         }
-        private void EntityDelete()
+        protected void ShowEditFormDefault(long id)
         {
+            if(id<=0) return;
+            AktifKartlariGoster = true;
+            FormCaptionAyarla();
+            Tablo.RowFocus("Id", id);
+        }
+        protected virtual void EntityDelete()
+        {
+            var entity = Tablo.GetRow<BaseEntity>();
+            if(entity == null) return;
+            if (!((IBaseCommonBll)Bll).Delete(entity)) return;
+
+            Tablo.DeleteSelectedRows();
+            Tablo.RowFocus(Tablo.FocusedRowHandle);
         }
         private void SelectEntity()
         {
@@ -96,7 +139,23 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
         }
         private void FormCaptionAyarla()
         {
-            throw new NotImplementedException();
+            if(btnAktifPasifKartlar == null)
+            {
+                Listele();
+                return;
+            }
+
+            if (AktifKartlariGoster)
+            {
+                btnAktifPasifKartlar.Caption = "PasifKartlar";
+                Tablo.ViewCaption = Text;
+            }
+            else
+            {
+                btnAktifPasifKartlar.Caption = "Aktif Kartlar";
+                Tablo.ViewCaption = Text + " - Pasif Kartlar";
+            }
+            Listele();
         }
         private void IslemTuruSec()
         {

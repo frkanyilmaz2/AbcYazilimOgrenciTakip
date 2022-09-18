@@ -1,6 +1,7 @@
 ﻿using AbcYazilim.OgrenciTakip.UI.Win.Interfaces;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraSpreadsheet;
 using System.ComponentModel;
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls
@@ -36,11 +37,13 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls
                 if (newValue == oldValue) return;
                 _id = value;
                 IdChanged(this, new IdChangedEventArgs(oldValue, newValue));
+                EnabledChange(this, EventArgs.Empty);
             }
         }
 
 
         public event EventHandler<IdChangedEventArgs> IdChanged = delegate { };
+        public event EventHandler EnabledChange = delegate { };
     }
 
     public class IdChangedEventArgs : EventArgs

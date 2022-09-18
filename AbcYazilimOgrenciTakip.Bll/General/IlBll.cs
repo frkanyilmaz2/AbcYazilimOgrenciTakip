@@ -12,7 +12,7 @@ using System.Linq.Expressions;
 
 namespace AbcYazilim.OgrenciTakip.Bll.General
 {
-    public class IlBll :BaseBll<Il, OgrenciTakipContext>, IBaseGenelBll
+    public class IlBll :BaseBll<Il, OgrenciTakipContext>, IBaseGenelBll, IBaseCommonBll
     {
         public IlBll()
         {

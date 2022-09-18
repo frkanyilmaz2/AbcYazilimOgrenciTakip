@@ -72,5 +72,11 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
                     sec.Sec(btnIlce,btnIl);
             }
         }
+
+        protected override void Control_EnabledChange(object? sender, EventArgs e)
+        {
+            if (sender != btnIl) return;
+            btnIl.ControlEnabledChange(btnIlce);
+        }
     }
 }

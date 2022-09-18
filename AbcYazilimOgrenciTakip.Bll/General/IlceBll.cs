@@ -8,10 +8,11 @@ using System.Linq;
 using AbcYazilim.OgrenciTakip.Common.Enums;
 using System.Windows.Forms;
 using System.Linq.Expressions;
+using AbcYazilim.OgrenciTakip.Bll.Interfaces;
 
 namespace AbcYazilim.OgrenciTakip.Bll.General
 {
-    public class IlceBll : BaseBll<Ilce, OgrenciTakipContext>
+    public class IlceBll : BaseBll<Ilce, OgrenciTakipContext>, IBaseCommonBll
     {
         public IlceBll() { }
         public IlceBll(Control ctrl) : base(ctrl) { }

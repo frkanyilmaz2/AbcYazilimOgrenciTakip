@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseListForm));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -126,7 +127,9 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.sagMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sagMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -188,7 +191,7 @@
             this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl.ShowQatLocationSelector = false;
             this.ribbonControl.ShowToolbarCustomizeItem = false;
-            this.ribbonControl.Size = new System.Drawing.Size(1325, 109);
+            this.ribbonControl.Size = new System.Drawing.Size(1036, 109);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
@@ -702,16 +705,26 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barCikis, true);
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2);
             this.ribbonStatusBar.ItemLinks.Add(this.btnAktifPasifKartlar);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 518);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 516);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1325, 24);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1036, 24);
+            // 
+            // sagMenu
+            // 
+            this.sagMenu.ItemLinks.Add(this.btnYeni);
+            this.sagMenu.ItemLinks.Add(this.btnSil);
+            this.sagMenu.ItemLinks.Add(this.btnSec);
+            this.sagMenu.ItemLinks.Add(this.btnDuzelt);
+            this.sagMenu.ItemLinks.Add(this.btnYenile);
+            this.sagMenu.Name = "sagMenu";
+            this.sagMenu.Ribbon = this.ribbonControl;
             // 
             // BaseListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1325, 542);
+            this.ClientSize = new System.Drawing.Size(1036, 540);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
             this.IconOptions.ShowIcon = false;
@@ -721,6 +734,7 @@
             this.ShowInTaskbar = false;
             this.StatusBar = this.ribbonStatusBar;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sagMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -769,5 +783,6 @@
         private DevExpress.XtraBars.BarButtonItem btnWordDosyasi;
         private DevExpress.XtraBars.BarButtonItem btnPdfDosyasi;
         private DevExpress.XtraBars.BarButtonItem btnTextDosyasi;
+        private DevExpress.XtraBars.PopupMenu sagMenu;
     }
 }

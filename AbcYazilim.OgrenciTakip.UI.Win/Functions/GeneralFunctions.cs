@@ -1,6 +1,7 @@
 ﻿using AbcYazilim.OgrenciTakip.Common.Enums;
 using AbcYazilim.OgrenciTakip.Common.Messages;
 using AbcYazilim.OgrenciTakip.Model.Entities.Base;
+using AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
@@ -103,6 +104,45 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Functions
             var id = Id();
 
             return islemTuru == IslemTuru.EntityUpdate?selectedEntity.Id : long.Parse(Id());
+        }
+        public static void ControlEnabledChange(this MyButtonEdit baseEdit, Control prmEdit)
+        {
+            switch (prmEdit)
+            {
+                case MyButtonEdit edt: //edt MyButtonEdit tipinde ise
+                    edt.Enabled = baseEdit.Id.HasValue && baseEdit.Id >0;
+                    edt.Id = null;
+                    edt.EditValue = null;
+                    break;
+            }
+        }
+
+        public static void RowFocus(this GridView tablo, string aranacakKolon,object aranacakDeger)
+        {
+            var rowHandle = 0;
+
+            for (int i = 0; i < tablo.RowCount; i++)
+            {
+                var bulunanDeger = tablo.GetRowCellValue(i,aranacakKolon);
+
+                if (aranacakDeger.Equals(bulunanDeger)) rowHandle = i;
+            }
+            tablo.FocusedRowHandle = rowHandle;
+        }
+
+        public static void RowFocus(this GridView tablo, int rowhandle)
+        {
+            if(rowhandle<= 0) return;
+            if (rowhandle == tablo.RowCount - 1)
+                tablo.FocusedRowHandle = rowhandle;
+            else
+                tablo.FocusedRowHandle = rowhandle - 1;
+        }
+
+        public static void SagMenuGoster(this MouseEventArgs e, PopupMenu sagMenu)
+        {
+            if(e.Button != MouseButtons.Right) return;
+            sagMenu.ShowPopup(Control.MousePosition);
         }
     }
 }
