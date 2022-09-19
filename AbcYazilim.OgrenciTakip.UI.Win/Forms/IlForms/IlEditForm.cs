@@ -27,6 +27,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.IlForms
             NesneyiKontrollereBagla();
 
             if (BaseIslemTuru != IslemTuru.EntityInsert) return;
+            Id = BaseIslemTuru.IdOlustur(OldEntity);
             txtKod.Text = ((IlBll)Bll).YeniKodVer();
             txtIlAdi.Focus();
         }

@@ -94,6 +94,10 @@ namespace AbcYazilim.Dal.Base
 
         #endregion
 
+        public int Count(Expression<Func<T, bool>> filter = null)
+        {
+           return filter == null?_dbSet.Count(): _dbSet.Count(filter);
+        }
 
         public string YeniKodVer(KartTuru kartTuru , Expression<Func<T, string>> filter, Expression<Func<T, bool>> where = null)
         {

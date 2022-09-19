@@ -200,6 +200,12 @@
             // statusBarAciklama
             // 
             this.statusBarAciklama.Id = 6;
+            this.statusBarAciklama.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("statusBarAciklama.ImageOptions.Image")));
+            this.statusBarAciklama.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("statusBarAciklama.ImageOptions.LargeImage")));
+            this.statusBarAciklama.ItemAppearance.Normal.FontStyleDelta = System.Drawing.FontStyle.Italic;
+            this.statusBarAciklama.ItemAppearance.Normal.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.statusBarAciklama.ItemAppearance.Normal.Options.UseFont = true;
+            this.statusBarAciklama.ItemAppearance.Normal.Options.UseForeColor = true;
             this.statusBarAciklama.Name = "statusBarAciklama";
             this.statusBarAciklama.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
@@ -207,12 +213,18 @@
             // 
             this.statusBarKisayol.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.statusBarKisayol.Id = 7;
+            this.statusBarKisayol.ItemAppearance.Normal.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.statusBarKisayol.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+            this.statusBarKisayol.ItemAppearance.Normal.Options.UseFont = true;
+            this.statusBarKisayol.ItemAppearance.Normal.Options.UseForeColor = true;
             this.statusBarKisayol.Name = "statusBarKisayol";
             // 
             // statusBarKisayolAciklama
             // 
             this.statusBarKisayolAciklama.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.statusBarKisayolAciklama.Id = 8;
+            this.statusBarKisayolAciklama.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+            this.statusBarKisayolAciklama.ItemAppearance.Normal.Options.UseForeColor = true;
             this.statusBarKisayolAciklama.Name = "statusBarKisayolAciklama";
             // 
             // ribbonPage1

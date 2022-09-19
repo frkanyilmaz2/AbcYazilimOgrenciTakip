@@ -2,6 +2,7 @@
 using AbcYazilim.OgrenciTakip.UI.Win.Show;
 using AbcYazilim.OgrenciTakip.Common.Enums;
 using DevExpress.XtraBars;
+using AbcYazilim.OgrenciTakip.UI.Win.Forms.IlForms;
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.GeneralForms
 {
@@ -32,6 +33,8 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.GeneralForms
         {
             if (e.Item == btnOkulKartlari)
                 ShowListForms<OkulListForm>.ShowListForm(KartTuru.Okul);
+            else if (e.Item == btnIlKartlari)
+                ShowListForms<IlListForm>.ShowListForm(KartTuru.Il);
 
         }
     }

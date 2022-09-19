@@ -85,6 +85,11 @@
             DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem11 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipItem toolTipItem22 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem23 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem12 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipItem toolTipItem24 = new DevExpress.Utils.ToolTipItem();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnYeni = new DevExpress.XtraBars.BarButtonItem();
             this.btnSil = new DevExpress.XtraBars.BarButtonItem();
@@ -124,6 +129,7 @@
             this.barCikis = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.btnAktifPasifKartlar = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBagliKartlar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -177,9 +183,10 @@
             this.btnFormatsizExcellDosyasi,
             this.btnWordDosyasi,
             this.btnPdfDosyasi,
-            this.btnTextDosyasi});
+            this.btnTextDosyasi,
+            this.btnBagliKartlar});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 42;
+            this.ribbonControl.MaxItemId = 43;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -660,6 +667,28 @@
             superToolTip11.Items.Add(toolTipItem22);
             this.btnAktifPasifKartlar.SuperTip = superToolTip11;
             // 
+            // btnBagliKartlar
+            // 
+            this.btnBagliKartlar.Caption = "Bağlı Kartlar";
+            this.btnBagliKartlar.Id = 42;
+            this.btnBagliKartlar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBagliKartlar.ImageOptions.Image")));
+            this.btnBagliKartlar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBagliKartlar.ImageOptions.LargeImage")));
+            this.btnBagliKartlar.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B));
+            this.btnBagliKartlar.Name = "btnBagliKartlar";
+            toolTipTitleItem12.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem12.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image22")));
+            toolTipTitleItem12.Text = "( Ctrl+B ) ";
+            toolTipItem23.Text = "Bağlı Kartları Aç";
+            toolTipItem24.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem24.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image23")));
+            toolTipItem24.Text = "<b>Bağlı kartları açar.</b>";
+            superToolTip12.Items.Add(toolTipTitleItem12);
+            superToolTip12.Items.Add(toolTipItem23);
+            superToolTip12.Items.Add(toolTipSeparatorItem12);
+            superToolTip12.Items.Add(toolTipItem24);
+            this.btnBagliKartlar.SuperTip = superToolTip12;
+            this.btnBagliKartlar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -676,6 +705,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnYenile);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnFiltrele);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnKolonlar);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnBagliKartlar);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnYazdir);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnGonder);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCikis);
@@ -784,5 +814,6 @@
         private DevExpress.XtraBars.BarButtonItem btnPdfDosyasi;
         private DevExpress.XtraBars.BarButtonItem btnTextDosyasi;
         private DevExpress.XtraBars.PopupMenu sagMenu;
+        protected DevExpress.XtraBars.BarButtonItem btnBagliKartlar;
     }
 }

@@ -34,6 +34,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.IlceForms
             Text = Text + $" - ( {_ilAdi} )";
 
             if (BaseIslemTuru != IslemTuru.EntityInsert) return;
+            Id = BaseIslemTuru.IdOlustur(OldEntity);
             txtKod.Text = ((IlceBll)Bll).YeniKodVer(x=>x.IlId == _ilId);
             txtIlceAdi.Focus();
         }

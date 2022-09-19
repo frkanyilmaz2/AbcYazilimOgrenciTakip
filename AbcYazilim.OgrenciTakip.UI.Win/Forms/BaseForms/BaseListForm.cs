@@ -1,11 +1,10 @@
 ﻿using AbcYazilim.OgrenciTakip.Bll.Interfaces;
 using AbcYazilim.OgrenciTakip.Common.Enums;
-using AbcYazilim.OgrenciTakip.Model.Entities;
 using AbcYazilim.OgrenciTakip.Model.Entities.Base;
 using AbcYazilim.OgrenciTakip.UI.Win.Functions;
 using AbcYazilim.OgrenciTakip.UI.Win.Show.Interfaces;
-using AbcYazilimOgrenciTakip.Bll.General;
 using AbcYazilimOgrenciTakip.Bll.Interfaces;
+using DevExpress.Mvvm.Native;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
@@ -15,6 +14,8 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseListForm : RibbonForm
     {
+        private bool _formSablonKayitEdilecek;
+        private bool _tabloSablonKayitEdilecek;
         protected IBaseFormShow FormShow;
         protected KartTuru BaseKartTuru;
         protected internal GridView Tablo;
@@ -23,7 +24,10 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
         protected internal BaseEntity SelectedEntity;
         protected IBaseBll Bll;
         protected ControlNavigator Navigator;
+        protected internal bool AktifPasifButonGoster = false;
         protected internal long? SeciliGelecekId;
+        protected BarItem[] ShowItems;
+        protected BarItem[] HideItems;
 
         public BaseListForm()
         {
@@ -40,11 +44,49 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             Tablo.DoubleClick += Tablo_DoubleClick;
             Tablo.KeyDown += Tablo_KeyDown;
             Tablo.MouseUp += Tablo_MouseUp;
+            Tablo.ColumnWidthChanged += Tablo_ColumnWidthChanged;
+            Tablo.ColumnPositionChanged += Tablo_ColumnPositionChanged;
+            Tablo.EndSorting += Tablo_EndSorting;
 
             //form events
 
             Shown += BaseListForm_Shown;
+            Load += BaseListForm_Load;
+            FormClosing += BaseListForm_FormClosing;
+            LocationChanged += BaseListForm_LocationChanged;
+            SizeChanged += BaseListForm_SizeChanged;
+        }
 
+        private void BaseListForm_SizeChanged(object? sender, EventArgs e)
+        {
+            if(!IsMdiChild) 
+                _formSablonKayitEdilecek = true;
+        }
+        private void BaseListForm_LocationChanged(object? sender, EventArgs e)
+        {
+            if (!IsMdiChild)
+                _formSablonKayitEdilecek = true;
+        }
+        private void Tablo_EndSorting(object? sender, EventArgs e)
+        {
+            _tabloSablonKayitEdilecek = true;
+        }
+        private void Tablo_ColumnPositionChanged(object? sender, EventArgs e)
+        {
+            _tabloSablonKayitEdilecek = true;
+        }
+        private void Tablo_ColumnWidthChanged(object sender, DevExpress.XtraGrid.Views.Base.ColumnEventArgs e)
+        {
+            _tabloSablonKayitEdilecek = true;
+        }
+        private void BaseListForm_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            SablonKaydet();
+        }
+
+        private void BaseListForm_Load(object? sender, EventArgs e)
+        {
+            SablonYukle();
         }
 
         private void Tablo_MouseUp(object? sender, MouseEventArgs e)
@@ -55,21 +97,50 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
         private void BaseListForm_Shown(object? sender, EventArgs e)
         {
             Tablo.Focus();
-            //ButonGizleGoster();
+            ButonGizleGoster();
            // SutunGizleGoster();
 
             if (IsMdiChild || !SeciliGelecekId.HasValue) return; //SeciliGelecekId == null) return;
             Tablo.RowFocus("Id",SeciliGelecekId);
         }
-
         private void SutunGizleGoster()
         {
             throw new NotImplementedException();
         }
+        private void SablonKaydet()
+        {
+            if (_formSablonKayitEdilecek)
+                Name.FormSablonKaydet(Left, Top, Width, Height, WindowState);
 
+            if (_tabloSablonKayitEdilecek)
+                Tablo.TabloSablonKaydet(IsMdiChild ? Name + " Tablosu" : Name + " TablosuMDI");
+        }
+        private void SablonYukle()
+        {
+            if (IsMdiChild)
+                Tablo.TabloSablonYukle(Name + " Tablosu");
+            else
+            {
+                Name.FormSablonYukle(this);
+                Tablo.TabloSablonYukle(Name + " TablosuMDI");
+            }
+        }
         private void ButonGizleGoster()
         {
-           
+            btnSec.Visibility = AktifPasifButonGoster ? BarItemVisibility.Never : IsMdiChild ? BarItemVisibility.Never : BarItemVisibility.Always;
+            barEnter.Visibility = IsMdiChild?BarItemVisibility.Never : BarItemVisibility.Always;
+            barEnterAciklama.Visibility = IsMdiChild ? BarItemVisibility.Never : BarItemVisibility.Always;
+            btnAktifPasifKartlar.Visibility = AktifPasifButonGoster ? BarItemVisibility.Always : !IsMdiChild ? BarItemVisibility.Never : BarItemVisibility.Always;
+
+            ShowItems?.ForEach(x => x.Visibility = BarItemVisibility.Always);
+            /*            I
+                          V
+            foreach (BarItem item in ShowItems)
+            {
+                item.Visibility = BarItemVisibility.Always;
+            }
+            */
+            HideItems?.ForEach(x => x.Visibility = BarItemVisibility.Never);
         }
 
         protected internal void Yukle()
@@ -181,13 +252,12 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                 link.OpenMenu();
                 link.Item.ItemLinks[0].Focus();
             }
-            else if (e.Item == btnStandartExcellDosyasi)
-            { }
-            else if (e.Item == btnFormatliExcellDosyasi) { }
-            else if (e.Item == btnFormatsizExcellDosyasi) { }
-            else if (e.Item == btnWordDosyasi) { }
-            else if (e.Item == btnPdfDosyasi) { }
-            else if (e.Item == btnTextDosyasi) { }
+            else if (e.Item == btnStandartExcellDosyasi) Tablo.TabloDisariAktar(DosyaTuru.ExcellStandart, e.Item.Caption, Text);
+            else if (e.Item == btnFormatliExcellDosyasi) Tablo.TabloDisariAktar(DosyaTuru.ExcellFormatli, e.Item.Caption, Text);
+            else if (e.Item == btnFormatsizExcellDosyasi) Tablo.TabloDisariAktar(DosyaTuru.ExcellFormatsiz, e.Item.Caption);
+            else if (e.Item == btnWordDosyasi) Tablo.TabloDisariAktar(DosyaTuru.WordDosyasi, e.Item.Caption);
+            else if (e.Item == btnPdfDosyasi) Tablo.TabloDisariAktar(DosyaTuru.PdfDosyasi, e.Item.Caption);
+            else if (e.Item == btnTextDosyasi) Tablo.TabloDisariAktar(DosyaTuru.TextDosyasi, e.Item.Caption);
 
             else if (e.Item == btnYeni)
             {
@@ -217,6 +287,8 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                     Tablo.ShowCustomization();
                 else Tablo.HideCustomization();
             }
+            else if (e.Item == btnBagliKartlar)
+                BagliKartAc();
             else if (e.Item == btnYazdir) Yazdir();
             else if (e.Item == btnCikis) Close();
             else if (e.Item == btnAktifPasifKartlar)
@@ -227,6 +299,8 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
 
             Cursor.Current = DefaultCursor;
         }
+
+        protected virtual void BagliKartAc() { }
         private void Tablo_DoubleClick(object? sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;

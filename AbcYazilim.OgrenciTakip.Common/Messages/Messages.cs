@@ -49,7 +49,23 @@ namespace AbcYazilim.OgrenciTakip.Common.Messages
             return EvetSeciliEvetHayirIptal("Yapılan değişiklikler kaydedilsin mi?", "Çıkış Onay");
 
         }
+        public static void MukerrerKayitHataMesaji(string alanAdi)
+        {
+            HataMesaji($"Girmiş olduğunuz {alanAdi} daha önce kullanılmıştır!");
+        }
 
-      
+        public static void HataliVeriMesaji(string alanAdi)
+        {
+            HataMesaji($"{alanAdi} alanına geçerli bir değer girmelisiniz!");
+        }
+
+        public static DialogResult DosyaAktarimMesaji(string dosyaFormati)
+        {
+            return EvetSeciliEvetHayir($"İlgili tablo {dosyaFormati} olarak dışarı aktarılacaktır. Onaylıyor musunuz?", "Aktarım Onay");
+
+        }
+
+
+
     }
 }

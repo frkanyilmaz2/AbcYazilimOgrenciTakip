@@ -18,6 +18,7 @@ namespace AbcYazilim.Dal.Base
         TResult Find<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T,TResult>> selector); 
         // biz sana T türünde bir sorgu gönderecez eğer doğru dönerse -sorgunun karşılığında bir value olduğu anlamına geliyor- o valueyi geri dönder hangi tipte geri döndüreceğini sorgu esnasında verecez T tipi
         IQueryable<TResult> Select <TResult>(Expression<Func<T, bool>> filter, Expression<Func<T,TResult>> selector);
+        int Count(Expression<Func<T, bool>> filter = null);
         string YeniKodVer(KartTuru kartTuru, Expression<Func<T, string>> filter, Expression<Func<T, bool>> where = null);
 
 

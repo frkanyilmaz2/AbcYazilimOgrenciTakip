@@ -3,8 +3,11 @@ using AbcYazilim.OgrenciTakip.Common.Enums;
 using AbcYazilim.OgrenciTakip.Common.Messages;
 using AbcYazilim.OgrenciTakip.Model.Entities.Base;
 using AbcYazilim.OgrenciTakip.UI.Win.Functions;
+using AbcYazilim.OgrenciTakip.UI.Win.Grid;
+using AbcYazilim.OgrenciTakip.UI.Win.Interfaces;
 using AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls;
 using AbcYazilimOgrenciTakip.Bll.Interfaces;
+using DevExpress.Mvvm.Native;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
@@ -13,6 +16,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseEditForm : RibbonForm
     {
+        private bool _formSablonKayitEdilecek;
         protected internal IslemTuru BaseIslemTuru;
         protected internal long Id;
         protected internal bool RefreshYapilacak;
@@ -45,13 +49,16 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             }
 
             // form events
+            LocationChanged += BaseEditForm_LocationChanged;
+            SizeChanged += BaseEditForm_SizeChanged;
             Load += BaseEditForm_Load;
             FormClosing += BaseEditForm_FormClosing;
 
             void ControlEvents(Control control)
             {
                 control.KeyDown += Control_KeyDown;
-               
+                control.GotFocus += Control_GotFocus; 
+                control.Leave += Control_Leave;
                 
                 switch (control)
                 {
@@ -78,23 +85,66 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                 foreach (var layout in DataLayoutControls)
                     foreach (Control ctrl in layout.Controls)
                         ControlEvents(ctrl);
-                
+        }
+
+        private void Control_Leave(object? sender, EventArgs e)
+        {
+            statusBarKisayol.Visibility = BarItemVisibility.Never;
+            statusBarKisayolAciklama.Visibility = BarItemVisibility.Never;
+            
+        }
+
+        private void Control_GotFocus(object? sender, EventArgs e)
+        {
+            var type = sender.GetType();
+
+            if (
+                type == typeof(MyButtonEdit)
+                || type == typeof(MyGridView)
+                || type == typeof(MyPictureEdit)
+                || type == typeof(MyComboBoxEdit)
+                || type == typeof(MyDateEdit)
+                )
+            {
+                statusBarKisayol.Visibility = BarItemVisibility.Always;
+                statusBarKisayolAciklama.Visibility = BarItemVisibility.Always;
+
+                statusBarAciklama.Caption = ((IStatusBarAciklama)sender).StatusBarAciklama;
+                statusBarKisayol.Caption = ((IStatusBarKisayol)sender).StatusBarKisayol;
+                statusBarKisayolAciklama.Caption = ((IStatusBarKisayol)sender).StatusBarKisayolAciklama;
+
+            }
+            else if (sender is IStatusBarAciklama ctrl)
+                statusBarAciklama.Caption = ctrl.StatusBarAciklama;
+        }
+
+        private void BaseEditForm_SizeChanged(object? sender, EventArgs e)
+        {
+            _formSablonKayitEdilecek = true;
+        }
+
+        private void BaseEditForm_LocationChanged(object? sender, EventArgs e)
+        {
+            _formSablonKayitEdilecek = true;
         }
 
         private void BaseEditForm_FormClosing(object? sender, FormClosingEventArgs e)
         {
-            //SablonKaydet();
+            SablonKaydet();
             if (btnKaydet.Visibility == BarItemVisibility.Never || !btnKaydet.Enabled) return;
 
             if (!Kaydet(true))
                 e.Cancel = true;
         }
-
-        private void SablonKaydet()
+        protected void SablonKaydet()
         {
-        
+            if (_formSablonKayitEdilecek)
+                Name.FormSablonKaydet(Left, Top, Width, Height, WindowState);
         }
-
+        private void SablonYukle()
+        {
+            Name.FormSablonYukle(this);
+        }
         protected virtual void Control_EnabledChange(object? sender, EventArgs e) { }
         private void Control_EditValueChanged(object? sender, EventArgs e)
         {
@@ -142,9 +192,9 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
         {
             IsLoaded = true;
             GuncelNesneOlustur();
-            //SablonYukle();
+            SablonYukle();
             //ButonGizleGoster();
-            Id = BaseIslemTuru.IdOlustur(OldEntity); 
+
 
             //Güncelleme Yapılacak.
 
@@ -223,10 +273,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                         if (EntityUpdate()) return KayitSonrasiIslemler();
                         break;
                 }
-
-
                 return false;
-
             }
             var result = kapanis ? Messages.KapanisMesaj(): Messages.KayitMesaj();
             switch (result)

@@ -33,5 +33,15 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Show
                 return frm.DialogResult == DialogResult.OK ? frm.SelectedEntity : null;
             }
         }
+
+        public static void ShowListForm(KartTuru kartTuru,params object[] prm)
+        { // yetki kontrolü
+            var frm = (TForm)Activator.CreateInstance(typeof(TForm),prm);
+            frm.MdiParent = Form.ActiveForm;
+
+            frm.Yukle();
+            frm.Show();
+
+        }
     }
 }
