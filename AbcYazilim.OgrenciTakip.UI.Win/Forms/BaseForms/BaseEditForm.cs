@@ -28,6 +28,8 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
         protected BaseEntity CurrentEntity;
         protected bool IsLoaded;
         protected bool KayitSonrasiFormuKapat = true;
+        protected BarItem[] ShowItems;
+        protected BarItem[] HideItems;
 
 
         public BaseEditForm()
@@ -87,6 +89,19 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                         ControlEvents(ctrl);
         }
 
+        private void ButonGizleGoster()
+        {
+
+            ShowItems?.ForEach(x => x.Visibility = BarItemVisibility.Always);
+            /*            I
+                          V
+            foreach (BarItem item in ShowItems)
+            {
+                item.Visibility = BarItemVisibility.Always;
+            }
+            */
+            HideItems?.ForEach(x => x.Visibility = BarItemVisibility.Never);
+        }
         private void Control_Leave(object? sender, EventArgs e)
         {
             statusBarKisayol.Visibility = BarItemVisibility.Never;
@@ -136,6 +151,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             if (!Kaydet(true))
                 e.Cancel = true;
         }
+        protected virtual void FilterUygula() { }
         protected void SablonKaydet()
         {
             if (_formSablonKayitEdilecek)
@@ -193,13 +209,12 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             IsLoaded = true;
             GuncelNesneOlustur();
             SablonYukle();
-            //ButonGizleGoster();
+            ButonGizleGoster();
 
 
             //Güncelleme Yapılacak.
 
         }
-
         private void Button_ItemClick(object sender, ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -220,13 +235,14 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                 //Yetki Kontrolü
                 EntityDelete();
             }
+            else if (e.Item == btnUygula)
+                FilterUygula();
             else if (e.Item == btnCikis)
-                 Close();
+                Close();
+          
 
             Cursor.Current = DefaultCursor;
-
         }
-
         protected virtual void SecimYap(object sender) { }
         private void EntityDelete()
         {
@@ -234,7 +250,6 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             RefreshYapilacak = true;
             Close();
         }
-
         private void GeriAl()
         {
             if (Messages.HayirSeciliEvetHayir("Yapılan değişiklikler geri alınacaktır. Onaylıyor musunuz?", "Geri Al Onay") != DialogResult.Yes) return;
@@ -243,10 +258,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                 Yukle();
             else
                 Close();
-
-
         }
-
         private bool Kaydet(bool kapanis)
         {
             bool KayitIslemi()

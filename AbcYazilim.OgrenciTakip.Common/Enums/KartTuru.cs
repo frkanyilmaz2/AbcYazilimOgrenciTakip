@@ -9,6 +9,9 @@ namespace AbcYazilim.OgrenciTakip.Common.Enums
         [Description("İl Kartı")]
         Il,
         [Description("İlçe Kartı")]
-        Ilce
+        Ilce,
+        [Description("Filtre Kartı")]
+        Filter
+            
     }
 }

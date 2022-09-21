@@ -64,6 +64,17 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Functions
             btnGeriAl.Enabled = butonEnabledDurumu;
             btnYeni.Enabled = !butonEnabledDurumu;
             btnSil.Enabled = !butonEnabledDurumu;
+
+        }
+        public static void ButtonEnabledDurumu<T>(BarButtonItem btnKaydet, BarButtonItem btnFarkliKaydet, BarButtonItem btnSil,IslemTuru islemTuru, T oldEntity, T currentEntity)
+        {
+            var veriDegisimYeri = VeriDegisimYeriGetir(oldEntity, currentEntity);
+            var butonEnabledDurumu = veriDegisimYeri == VeriDegisimYeri.Alan;
+
+            btnKaydet.Enabled = butonEnabledDurumu;
+            btnFarkliKaydet.Enabled = islemTuru != IslemTuru.EntityInsert;
+            btnSil.Enabled = !butonEnabledDurumu;
+
         }
 
         public static long IdOlustur(this IslemTuru islemTuru, BaseEntity selectedEntity)
