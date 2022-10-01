@@ -23,7 +23,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.IlceForms
         protected override void DegiskenleriDoldur()
         {
             Tablo = tablo;
-            BaseKartTuru = KartTuru.Il;
+            BaseKartTuru = KartTuru.Ilce;
             Navigator = longNavigator.Navigator;
             Text = Text + $" - ( {_ilAdi} )";
         }
@@ -33,7 +33,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.IlceForms
         }
         protected override void ShowEditForm(long id)
         {
-            var result = new ShowEditForms<IlceEditForm>().ShowDialogEditForm(KartTuru.Ilce,id,_ilId,_ilAdi);
+            var result = ShowEditForms<IlceEditForm>.ShowDialogEditForm(KartTuru.Ilce,id,_ilId,_ilAdi);
             ShowEditFormDefault(result);
         }
     }

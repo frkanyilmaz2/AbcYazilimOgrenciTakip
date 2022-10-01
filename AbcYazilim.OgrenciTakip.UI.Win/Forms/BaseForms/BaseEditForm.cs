@@ -2,6 +2,7 @@
 using AbcYazilim.OgrenciTakip.Common.Enums;
 using AbcYazilim.OgrenciTakip.Common.Messages;
 using AbcYazilim.OgrenciTakip.Model.Entities.Base;
+using AbcYazilim.OgrenciTakip.Model.Entities.Base.Interfaces;
 using AbcYazilim.OgrenciTakip.UI.Win.Functions;
 using AbcYazilim.OgrenciTakip.UI.Win.Grid;
 using AbcYazilim.OgrenciTakip.UI.Win.Interfaces;
@@ -38,10 +39,9 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
         }
 
 
-        protected internal virtual void Yukle()
-        {
+        protected internal virtual void Yukle() { }
+        protected internal virtual IBaseEntity ReturnEntity() { return null; }
 
-        }
         protected void EventsLoad()
         {
             //button events
@@ -64,6 +64,13 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                 
                 switch (control)
                 {
+                    case FilterControl edt:
+                        edt.FilterChanged += Control_EditValueChanged;
+                        break;
+                    case ComboBoxEdit edt:
+                        edt.EditValueChanged += Control_EditValueChanged;
+                        edt.SelectedValueChanged += Control_SelectedValueChanged;
+                        break;
                     case MyButtonEdit edt:
                         edt.IdChanged += Control_IdChanged;
                         edt.EnabledChange += Control_EnabledChange;
@@ -89,6 +96,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                         ControlEvents(ctrl);
         }
 
+        protected virtual void Control_SelectedValueChanged(object? sender, EventArgs e) { }
         private void ButonGizleGoster()
         {
 
@@ -229,6 +237,11 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             {
                 Kaydet(false);
             }
+            else if (e.Item == btnFarkliKaydet)
+            {
+                //yetki kontrolü
+                FarkliKaydet();
+            }
             else if (e.Item == btnGeriAl) GeriAl();
             else if (e.Item == btnSil)
             {
@@ -237,11 +250,26 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             }
             else if (e.Item == btnUygula)
                 FilterUygula();
+            else if (e.Item == btnYazdir)
+                Yazdir();
+            else if (e.Item == btnBaskiOnizleme)
+                BaskiOnizleme();
+
             else if (e.Item == btnCikis)
                 Close();
-          
 
             Cursor.Current = DefaultCursor;
+        }
+        protected virtual void BaskiOnizleme() { }
+        protected virtual void Yazdir() { }
+        private void FarkliKaydet()
+        {
+            if (Messages.EvetSeciliEvetHayir("Bu filtre referans alınarak yeni bir kayıt oluşturulacaktır. Onaylıyor musunuz?", "Kayıt Onay") != DialogResult.Yes) return;
+
+            BaseIslemTuru = IslemTuru.EntityInsert;
+            Yukle();
+            if (Kaydet(true))
+                Close();
         }
         protected virtual void SecimYap(object sender) { }
         private void EntityDelete()

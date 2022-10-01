@@ -26,7 +26,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.FilterForms
         protected override void DegiskenleriDoldur()
         {
             Tablo = tablo;
-            BaseKartTuru = KartTuru.Il;
+            BaseKartTuru = KartTuru.Filter;
             Navigator = longNavigator.Navigator;
         }
         protected override void Listele()
@@ -35,7 +35,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.FilterForms
         }
         protected override void ShowEditForm(long id)
         {
-            var result = new ShowEditForms<FilterEditForm>().ShowDialogEditForm(KartTuru.Filter, id,_filterKartTuru,_filterGrid);
+            var result = ShowEditForms<FilterEditForm>.ShowDialogEditForm(KartTuru.Filter, id,_filterKartTuru,_filterGrid);
             ShowEditFormDefault(result);
         }
 

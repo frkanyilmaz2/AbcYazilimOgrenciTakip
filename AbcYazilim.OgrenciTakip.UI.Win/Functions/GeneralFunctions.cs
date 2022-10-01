@@ -6,6 +6,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -98,7 +99,6 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Functions
                 }
                 return deger;
             }
-
             string Id()
             {
                 var yil = SifirEkle(DateTime.Now.Date.Year.ToString());
@@ -113,7 +113,6 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Functions
                 return  yil+ay+gun+saat+dakika+saniye+milisn+random;
             }
             var id = Id();
-
             return islemTuru == IslemTuru.EntityUpdate?selectedEntity.Id : long.Parse(Id());
         }
         public static void ControlEnabledChange(this MyButtonEdit baseEdit, Control prmEdit)
@@ -154,6 +153,16 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Functions
         {
             if(e.Button != MouseButtons.Right) return;
             sagMenu.ShowPopup(Control.MousePosition);
+        }
+        public static List<string> YazicilariListele()
+        {
+            return PrinterSettings.InstalledPrinters.Cast<string>().ToList();
+        }
+
+        public static string DefaultYazici()
+        {
+            var settings = new PrinterSettings();
+            return settings.PrinterName;
         }
     }
 }

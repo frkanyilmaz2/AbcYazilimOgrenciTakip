@@ -1,7 +1,11 @@
 ﻿using AbcYazilim.OgrenciTakip.Bll.Interfaces;
 using AbcYazilim.OgrenciTakip.Common.Enums;
+using AbcYazilim.OgrenciTakip.Model.Entities;
 using AbcYazilim.OgrenciTakip.Model.Entities.Base;
+using AbcYazilim.OgrenciTakip.UI.Win.Forms.FilterForms;
+using AbcYazilim.OgrenciTakip.UI.Win.Forms.GeneralForms;
 using AbcYazilim.OgrenciTakip.UI.Win.Functions;
+using AbcYazilim.OgrenciTakip.UI.Win.Show;
 using AbcYazilim.OgrenciTakip.UI.Win.Show.Interfaces;
 using AbcYazilimOgrenciTakip.Bll.Interfaces;
 using DevExpress.Mvvm.Native;
@@ -14,6 +18,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseListForm : RibbonForm
     {
+        private long _filterId;
         private bool _formSablonKayitEdilecek;
         private bool _tabloSablonKayitEdilecek;
         protected IBaseFormShow FormShow;
@@ -47,6 +52,8 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             Tablo.ColumnWidthChanged += Tablo_ColumnWidthChanged;
             Tablo.ColumnPositionChanged += Tablo_ColumnPositionChanged;
             Tablo.EndSorting += Tablo_EndSorting;
+            Tablo.FilterEditorCreated += Tablo_FilterEditorCreated;
+            Tablo.ColumnFilterChanged += Tablo_ColumnFilterChanged;
 
             //form events
 
@@ -55,6 +62,18 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             FormClosing += BaseListForm_FormClosing;
             LocationChanged += BaseListForm_LocationChanged;
             SizeChanged += BaseListForm_SizeChanged;
+        }
+
+        private void Tablo_ColumnFilterChanged(object? sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Tablo.ActiveFilterString))
+                _filterId = 0;
+        }
+
+        private void Tablo_FilterEditorCreated(object sender, DevExpress.XtraGrid.Views.Base.FilterControlEventArgs e)
+        {
+            e.ShowFilterEditor = false;
+            ShowEditForms<FilterEditForm>.ShowDialogEditForm(KartTuru.Filter,_filterId,BaseKartTuru, Tablo.GridControl);
         }
 
         private void BaseListForm_SizeChanged(object? sender, EventArgs e)
@@ -202,11 +221,15 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
 
         private void FiltreSec()
         {
-            throw new NotImplementedException();
+            var entity = (Filter)ShowListForms<FilterListForm>.ShowDialogListForm(KartTuru.Filter,_filterId,BaseKartTuru,Tablo.GridControl);
+            if (entity == null) return;
+
+            _filterId = entity.Id;
+            Tablo.ActiveFilterString = entity.FilterMetni;
         }
-        private void Yazdir()
+        protected virtual void Yazdir()
         {
-            throw new NotImplementedException();
+            TablePrintingFunctions.Yazdir(Tablo, Tablo.ViewCaption, AnaForm.SubeAdi);
         }
         private void FormCaptionAyarla()
         {
@@ -318,12 +341,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                 case Keys.Escape:
                     Close();
                     break;
-
             }
         }
-
-
-
-
     }
 }

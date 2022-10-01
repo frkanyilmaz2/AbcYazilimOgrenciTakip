@@ -26,5 +26,6 @@ namespace AbcYazilimOgrenciTakip.Data.Contexts
         public DbSet<Il> Il { get; set; }
         public DbSet<Ilce> Ilce { get; set; }
         public DbSet<Okul> Okul { get; set; }
+        public DbSet<Filter> Filter { get; set; }
     }
 }
