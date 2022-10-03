@@ -1,8 +1,6 @@
 ﻿using AbcYazilim.OgrenciTakip.Model.Dto;
 using AbcYazilim.OgrenciTakip.Model.Entities;
 using AbcYazilim.OgrenciTakip.Model.Entities.Base;
-using AbcYazilimOgrenciTakip.Bll.Base;
-using AbcYazilimOgrenciTakip.Data.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -10,18 +8,19 @@ using AbcYazilim.OgrenciTakip.Common.Enums;
 using System.Windows.Forms;
 using System.Linq;
 using AbcYazilim.OgrenciTakip.Bll.Interfaces;
+using AbcYazilim.OgrenciTakip.Bll.Base;
 
 namespace AbcYazilimOgrenciTakip.Bll.General
 {
-    public class OkulBll : BaseBll<Okul, OgrenciTakipContext>,IBaseGenelBll, IBaseCommonBll
+    public class OkulBll :BaseGenelBll<Okul>,IBaseGenelBll, IBaseCommonBll
     {
-        public OkulBll() { }
+        public OkulBll():base(KartTuru.Okul) { }
 
-        public OkulBll(Control ctrl) : base(ctrl) { }
-        
-        public BaseEntity Single(Expression<Func<Okul,bool>> filter)
+        public OkulBll(Control ctrl) : base(ctrl,KartTuru.Okul) { }
+
+        public override BaseEntity Single(Expression<Func<Okul, bool>> filter)
         {
-            return BaseSingle(filter, x => new OkulS 
+            return BaseSingle(filter, x => new OkulS
             {
                 Id = x.Id,
                 Kod = x.Kod,
@@ -34,7 +33,7 @@ namespace AbcYazilimOgrenciTakip.Bll.General
             });
         }
 
-        public IEnumerable<BaseEntity> List(Expression<Func<Okul, bool>> filter)
+        public override IEnumerable<BaseEntity> List(Expression<Func<Okul, bool>> filter)
         {
             return BaseList(filter, x => new OkulL
             {
@@ -44,24 +43,7 @@ namespace AbcYazilimOgrenciTakip.Bll.General
                 IlAdi = x.Il.IlAdi,
                 IlceAdi = x.Ilce.IlceAdi,
                 Aciklama = x.Aciklama
-            }).OrderBy(x=>x.Kod).ToList();
-        }
-        public bool Insert(BaseEntity entity)
-        {
-            return BaseInsert(entity, x => x.Kod == entity.Kod);
-        }
-        public bool Update(BaseEntity oldEntity, BaseEntity currentEntity)
-        {
-            return BaseUpdate(oldEntity, currentEntity,x => x.Kod == currentEntity.Kod);
-        }
-        public bool Delete(BaseEntity entity)
-        {
-            return BaseDelete(entity, KartTuru.Okul);
-        }
-
-        public string YeniKodVer()
-        {
-            return BaseYeniKodVer(KartTuru.Okul, x => x.Kod);
+            }).OrderBy(x => x.Kod).ToList();
         }
     }
 }

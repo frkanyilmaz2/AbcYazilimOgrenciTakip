@@ -17,8 +17,10 @@ namespace AbcYazilimOgrenciTakip.Bll.Base
 {
     public class BaseBll<T, TContext> : IBaseBll where T : BaseEntity where TContext : DbContext
     {
+        #region Variables
         private readonly Control _ctrl;
-        private IUnitOfWork<T> _uow; 
+        private IUnitOfWork<T> _uow;  
+        #endregion
         private bool Validation(IslemTuru islemTuru, BaseEntity oldEntity, BaseEntity currentEntity, Expression<Func<T, bool>> filter)
         {
             var errorControl = GetValidationErrorControl();
@@ -108,18 +110,17 @@ namespace AbcYazilimOgrenciTakip.Bll.Base
             _uow.Rep.Delete(entity.EntityConvert<T>());
             return _uow.Save();
         }
-        #region Dispose
-        public void Dispose()
-        {
-           _ctrl?.Dispose();
-           _uow?.Dispose();
-        } 
-        #endregion
-
         protected string BaseYeniKodVer(KartTuru kartTuru,Expression<Func<T,string>>filter,Expression<Func<T,bool>>where = null)
         {
             GeneralFunctions.CreateUnitOfWork<T,TContext>(ref _uow);
             return _uow.Rep.YeniKodVer(kartTuru,filter,where);
         }
+        #region Dispose
+        public void Dispose()
+        {
+            _ctrl?.Dispose();
+            _uow?.Dispose();
+        }
+        #endregion
     }
 }
