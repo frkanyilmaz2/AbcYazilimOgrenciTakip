@@ -268,6 +268,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                 || type == typeof(MyPictureEdit)
                 || type == typeof(MyComboBoxEdit)
                 || type == typeof(MyDateEdit)
+                || type == typeof(MyCalcEdit)
                 )
             {
                 statusBarKisayol.Visibility = BarItemVisibility.Always;

@@ -26,7 +26,7 @@ namespace AbcYazilim.OgrenciTakip.Bll.Base
         }
         public virtual IEnumerable<BaseEntity> List(Expression<Func<T, bool>> filter)
         {
-            return BaseList(filter, x => x).OrderBy(x => x.Kod).ToList();
+           return BaseList(filter, x => x).OrderBy(x => x.Kod).ToList();
         }
         public bool Insert(BaseEntity entity)
         {
