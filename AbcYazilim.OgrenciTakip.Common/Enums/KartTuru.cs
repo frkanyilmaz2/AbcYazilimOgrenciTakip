@@ -7,11 +7,11 @@ namespace AbcYazilim.OgrenciTakip.Common.Enums
         [Description("Okul Kartı")]
         Okul =1,
         [Description("İl Kartı")]
-        Il,
+        Il = 2,
         [Description("İlçe Kartı")]
-        Ilce,
+        Ilce = 3,
         [Description("Filtre Kartı")]
-        Filter,
+        Filter = 4,
         [Description("Aile Bilgi Kartı")]
         AileBilgi=5,
         [Description("İptal Nedeni Kartı")]
@@ -43,7 +43,26 @@ namespace AbcYazilim.OgrenciTakip.Common.Enums
         [Description("Servis Yeri Kartı")]
         Servis = 19,
         [Description("Sınıf Kartı")]
-        Sinif = 20
-            
+        Sinif = 20,
+        [Description("Hizmet Türü Kartı")]
+        HizmetTuru = 21,
+        [Description("Hizmet Kartı")]
+        Hizmet=22,
+        [Description("Özel Kod Kartı")]
+        OzelKod = 23,
+        [Description("Kasa Kartı")]
+        Kasa = 24,
+        [Description("Banka Kartı")]
+        Banka=25,
+        [Description("Banka Şube Kartı")]
+        BankaSube=26,
+        [Description("Avukat Kartı")]
+        Avukat = 27,
+        [Description("Cari Kartı")]
+        Cari = 28,
+        [Description("Ödeme Türü Kartı")]
+        OdemeTuru = 29,
+        [Description("Banka Hesap Kartı")]
+        BankaHesap=30,
     }
 }

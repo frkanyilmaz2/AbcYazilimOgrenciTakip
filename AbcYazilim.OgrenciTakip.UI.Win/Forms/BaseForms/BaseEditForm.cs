@@ -288,7 +288,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             statusBarKisayolAciklama.Visibility = BarItemVisibility.Never;
 
         }
-        private void Control_EditValueChanged(object? sender, EventArgs e)
+        protected virtual void Control_EditValueChanged(object? sender, EventArgs e)
         {
             if (!IsLoaded) return;
             GuncelNesneOlustur();
