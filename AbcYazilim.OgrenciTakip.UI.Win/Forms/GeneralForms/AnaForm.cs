@@ -27,6 +27,7 @@ using AbcYazilim.OgrenciTakip.UI.Win.Forms.AvukatForms;
 using AbcYazilim.OgrenciTakip.UI.Win.Forms.CariForms;
 using AbcYazilim.OgrenciTakip.UI.Win.Forms.OdemeTuruForms;
 using AbcYazilim.OgrenciTakip.UI.Win.Forms.BankaHesapForms;
+using AbcYazilim.OgrenciTakip.UI.Win.Forms.IletisimForms;
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.GeneralForms
 {
@@ -114,6 +115,8 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.GeneralForms
                 ShowListForms<OdemeTuruListForm>.ShowListForm(KartTuru.OdemeTuru);
             else if (e.Item == btnBankaHesapKartlari)
                 ShowListForms<BankaHesapListForm>.ShowListForm(KartTuru.BankaHesap);
+            else if (e.Item == btnIletisimKartlari)
+                ShowListForms<IletisimListForm>.ShowListForm(KartTuru.Iletisim);
         }
     }
 }

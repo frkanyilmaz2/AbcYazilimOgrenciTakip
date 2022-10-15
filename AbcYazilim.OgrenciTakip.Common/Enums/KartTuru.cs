@@ -64,5 +64,7 @@ namespace AbcYazilim.OgrenciTakip.Common.Enums
         OdemeTuru = 29,
         [Description("Banka Hesap Kartı")]
         BankaHesap=30,
+        [Description("İletişim Kartı")]
+        Iletisim = 31,
     }
 }

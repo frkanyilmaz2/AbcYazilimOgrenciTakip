@@ -53,6 +53,7 @@ namespace AbcYazilimOgrenciTakip.Data.Contexts
         public DbSet<Cari> Cari { get; set; }
         public DbSet<OdemeTuru> OdemeTuru { get; set; }
         public DbSet<BankaHesap> BankaHesaps { get; set; }
+        public DbSet<Iletisim> Iletisim { get; set; }
 
     }
 }

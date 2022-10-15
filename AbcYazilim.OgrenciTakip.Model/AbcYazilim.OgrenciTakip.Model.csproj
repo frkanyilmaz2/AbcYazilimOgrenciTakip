@@ -58,6 +58,7 @@
     <Compile Include="Dto\BankaHesapDto.cs" />
     <Compile Include="Dto\CariDto.cs" />
     <Compile Include="Dto\HizmetDto.cs" />
+    <Compile Include="Dto\IletisimDto.cs" />
     <Compile Include="Dto\KasaDto.cs" />
     <Compile Include="Dto\OkulDto.cs" />
     <Compile Include="Dto\SinifDto.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Entities\HizmetTuru.cs" />
     <Compile Include="Entities\Il.cs" />
     <Compile Include="Entities\Ilce.cs" />
+    <Compile Include="Entities\Iletisim.cs" />
     <Compile Include="Entities\IndirimTuru.cs" />
     <Compile Include="Entities\IptalNedeni.cs" />
     <Compile Include="Entities\IsYeri.cs" />

@@ -17,7 +17,6 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.OkulForms
             Bll = new OkulBll();
 
         }
-
         protected override void DegiskenleriDoldur()
         {
             Tablo = tablo;
