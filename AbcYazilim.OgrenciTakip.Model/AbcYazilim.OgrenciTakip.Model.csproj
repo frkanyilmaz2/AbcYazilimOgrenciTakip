@@ -59,7 +59,9 @@
     <Compile Include="Dto\CariDto.cs" />
     <Compile Include="Dto\HizmetDto.cs" />
     <Compile Include="Dto\IletisimDto.cs" />
+    <Compile Include="Dto\IndirimDto.cs" />
     <Compile Include="Dto\KasaDto.cs" />
+    <Compile Include="Dto\OgrenciDto.cs" />
     <Compile Include="Dto\OkulDto.cs" />
     <Compile Include="Dto\SinifDto.cs" />
     <Compile Include="Entities\AileBilgi.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Entities\Il.cs" />
     <Compile Include="Entities\Ilce.cs" />
     <Compile Include="Entities\Iletisim.cs" />
+    <Compile Include="Entities\Indirim.cs" />
     <Compile Include="Entities\IndirimTuru.cs" />
     <Compile Include="Entities\IptalNedeni.cs" />
     <Compile Include="Entities\IsYeri.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="Entities\Kontenjan.cs" />
     <Compile Include="Entities\Meslek.cs" />
     <Compile Include="Entities\OdemeTuru.cs" />
+    <Compile Include="Entities\Ogrenci.cs" />
     <Compile Include="Entities\Okul.cs" />
     <Compile Include="Entities\OzelKod.cs" />
     <Compile Include="Entities\Promosyon.cs" />

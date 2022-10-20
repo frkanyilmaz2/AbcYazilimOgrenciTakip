@@ -18,7 +18,7 @@ namespace AbcYazilimOgrenciTakip.Bll.Functions
             {
                 if (prop.PropertyType.Namespace == "System.Collections.Generic") continue;
                 var oldValue = prop.GetValue(oldEntity) ?? string.Empty;
-                var currentValue = prop.GetValue(currentEntity) ?? string.Empty;
+                var currentValue = prop.GetValue(currentEntity) ?? string.Empty; // ?? means  'null ise'
 
                 if (prop.PropertyType == typeof(byte[]))
                 {

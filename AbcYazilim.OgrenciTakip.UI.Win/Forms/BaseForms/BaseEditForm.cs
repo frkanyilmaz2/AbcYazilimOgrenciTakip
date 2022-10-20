@@ -56,6 +56,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
                 control.KeyDown += Control_KeyDown;
                 control.GotFocus += Control_GotFocus;
                 control.Leave += Control_Leave;
+                control.Enter += Control_Enter;
 
                 switch (control)
                 {
@@ -288,6 +289,7 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Forms.BaseForms
             statusBarKisayolAciklama.Visibility = BarItemVisibility.Never;
 
         }
+        protected virtual void Control_Enter(object? sender, EventArgs e) { }
         protected virtual void Control_EditValueChanged(object? sender, EventArgs e)
         {
             if (!IsLoaded) return;

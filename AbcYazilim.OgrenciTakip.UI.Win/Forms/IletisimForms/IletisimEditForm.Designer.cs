@@ -55,6 +55,7 @@
             DevExpress.XtraLayout.RowDefinition rowDefinition17 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition18 = new DevExpress.XtraLayout.RowDefinition();
             this.myDataLayoutControl = new AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls.MyDataLayoutControl();
+            this.txtCepTel2 = new AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls.MyTelefonNoTextEdit();
             this.txtKod = new AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls.MyKodTextEdit();
             this.txtAciklama = new AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls.MyMemoEdit();
             this.txtOzelKod2 = new AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls.MyButtonEdit();
@@ -146,11 +147,11 @@
             this.layoutControlItem45 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem46 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtCepTel2 = new AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls.MyTelefonNoTextEdit();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataLayoutControl)).BeginInit();
             this.myDataLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCepTel2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOzelKod2.Properties)).BeginInit();
@@ -244,7 +245,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem45)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCepTel2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             this.SuspendLayout();
             // 
@@ -320,6 +320,28 @@
             this.myDataLayoutControl.Size = new System.Drawing.Size(746, 498);
             this.myDataLayoutControl.TabIndex = 0;
             this.myDataLayoutControl.Text = "myDataLayoutControl1";
+            // 
+            // txtCepTel2
+            // 
+            this.txtCepTel2.Location = new System.Drawing.Point(225, 156);
+            this.txtCepTel2.MenuManager = this.ribbonControl;
+            this.txtCepTel2.Name = "txtCepTel2";
+            this.txtCepTel2.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtCepTel2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtCepTel2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
+            this.txtCepTel2.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtCepTel2.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.txtCepTel2.Properties.Mask.EditMask = "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d? \\d?\\d?";
+            this.txtCepTel2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
+            this.txtCepTel2.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
+            this.txtCepTel2.Properties.MaskSettings.Set("mask", "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d? \\d?\\d?");
+            this.txtCepTel2.Properties.MaskSettings.Set("isAutoComplete", false);
+            this.txtCepTel2.Properties.MaskSettings.Set("isOptimistic", false);
+            this.txtCepTel2.Properties.MaxLength = 50;
+            this.txtCepTel2.Size = new System.Drawing.Size(118, 20);
+            this.txtCepTel2.StatusBarAciklama = "Telefon No 2 giriniz.";
+            this.txtCepTel2.StyleController = this.myDataLayoutControl;
+            this.txtCepTel2.TabIndex = 9;
             // 
             // txtKod
             // 
@@ -406,6 +428,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtKimlikVerilisTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtKimlikVerilisTarihi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtKimlikVerilisTarihi.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
             this.txtKimlikVerilisTarihi.Properties.MaskSettings.Set("useAdvancingCaret", true);
             this.txtKimlikVerilisTarihi.Size = new System.Drawing.Size(97, 20);
@@ -604,6 +627,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtDogumTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDogumTarihi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDogumTarihi.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
             this.txtDogumTarihi.Properties.MaskSettings.Set("useAdvancingCaret", true);
             this.txtDogumTarihi.Size = new System.Drawing.Size(118, 20);
@@ -841,6 +865,9 @@
             this.txtKartNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtKartNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtKartNo.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtKartNo.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.txtKartNo.Properties.Mask.EditMask = "\\d?\\d?\\d?\\d?-\\d?\\d?\\d?\\d?-\\d?\\d?\\d?\\d?-\\d?\\d?\\d?\\d?";
+            this.txtKartNo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.txtKartNo.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
             this.txtKartNo.Properties.MaskSettings.Set("mask", "\\d?\\d?\\d?\\d?-\\d?\\d?\\d?\\d?-\\d?\\d?\\d?\\d?-\\d?\\d?\\d?\\d?");
             this.txtKartNo.Properties.MaskSettings.Set("isAutoComplete", false);
@@ -858,6 +885,9 @@
             this.txtIban.Name = "txtIban";
             this.txtIban.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtIban.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtIban.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.txtIban.Properties.Mask.EditMask = "TR\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?";
+            this.txtIban.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.txtIban.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
             this.txtIban.Properties.MaskSettings.Set("mask", "TR\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?\\d?\\d? \\d?\\d?");
             this.txtIban.Properties.MaskSettings.Set("isAutoComplete", false);
@@ -875,6 +905,10 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtEmail.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtEmail.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Strong;
+            this.txtEmail.Properties.Mask.EditMask = "((([0-9a-zA-Z_%-])+[.])+|([0-9a-zA-Z_%-])+)+@((([0-9a-zA-Z_-])+[.])+|([0-9a-zA-Z_" +
+    "-])+)+";
+            this.txtEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtEmail.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
             this.txtEmail.Properties.MaskSettings.Set("allowBlankInput", true);
             this.txtEmail.Properties.MaskSettings.Set("mask", "((([0-9a-zA-Z_%-])+[.])+|([0-9a-zA-Z_%-])+)+@((([0-9a-zA-Z_-])+[.])+|([0-9a-zA-Z_" +
@@ -909,6 +943,9 @@
             this.txtCepTel1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtCepTel1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtCepTel1.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtCepTel1.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.txtCepTel1.Properties.Mask.EditMask = "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d? \\d?\\d?";
+            this.txtCepTel1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.txtCepTel1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
             this.txtCepTel1.Properties.MaskSettings.Set("mask", "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d? \\d?\\d?");
             this.txtCepTel1.Properties.MaskSettings.Set("isAutoComplete", false);
@@ -941,6 +978,9 @@
             this.txtIsTel2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtIsTel2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtIsTel2.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtIsTel2.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.txtIsTel2.Properties.Mask.EditMask = "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d? \\d?\\d?";
+            this.txtIsTel2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.txtIsTel2.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
             this.txtIsTel2.Properties.MaskSettings.Set("mask", "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d? \\d?\\d?");
             this.txtIsTel2.Properties.MaskSettings.Set("isAutoComplete", false);
@@ -973,6 +1013,9 @@
             this.txtIsTel1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtIsTel1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtIsTel1.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtIsTel1.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.txtIsTel1.Properties.Mask.EditMask = "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d? \\d?\\d?";
+            this.txtIsTel1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.txtIsTel1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
             this.txtIsTel1.Properties.MaskSettings.Set("mask", "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d? \\d?\\d?");
             this.txtIsTel1.Properties.MaskSettings.Set("isAutoComplete", false);
@@ -1792,25 +1835,6 @@
             this.layoutControlItem20.Text = "Kod";
             this.layoutControlItem20.TextSize = new System.Drawing.Size(90, 13);
             // 
-            // txtCepTel2
-            // 
-            this.txtCepTel2.Location = new System.Drawing.Point(225, 156);
-            this.txtCepTel2.MenuManager = this.ribbonControl;
-            this.txtCepTel2.Name = "txtCepTel2";
-            this.txtCepTel2.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtCepTel2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtCepTel2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
-            this.txtCepTel2.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.txtCepTel2.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
-            this.txtCepTel2.Properties.MaskSettings.Set("mask", "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d? \\d?\\d?");
-            this.txtCepTel2.Properties.MaskSettings.Set("isAutoComplete", false);
-            this.txtCepTel2.Properties.MaskSettings.Set("isOptimistic", false);
-            this.txtCepTel2.Properties.MaxLength = 50;
-            this.txtCepTel2.Size = new System.Drawing.Size(118, 20);
-            this.txtCepTel2.StatusBarAciklama = "Telefon No 2 giriniz.";
-            this.txtCepTel2.StyleController = this.myDataLayoutControl;
-            this.txtCepTel2.TabIndex = 9;
-            // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
@@ -1839,6 +1863,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataLayoutControl)).EndInit();
             this.myDataLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtCepTel2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKod.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOzelKod2.Properties)).EndInit();
@@ -1932,7 +1957,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem45)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem46)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCepTel2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

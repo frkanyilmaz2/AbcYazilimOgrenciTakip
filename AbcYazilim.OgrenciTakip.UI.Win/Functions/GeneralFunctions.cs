@@ -3,13 +3,17 @@ using AbcYazilim.OgrenciTakip.Common.Messages;
 using AbcYazilim.OgrenciTakip.Model.Entities.Base;
 using AbcYazilim.OgrenciTakip.UI.Win.UserControls.Controls;
 using DevExpress.XtraBars;
+using DevExpress.XtraBars.Docking;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AbcYazilim.OgrenciTakip.UI.Win.Functions
 {
@@ -21,7 +25,6 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Functions
             Messages.KartSecmemeUyariMesaji();
             return -1;
         }
-
         public static T GetRow<T>(this GridView tablo, bool mesajVer = true) 
         {
             if (tablo.FocusedRowHandle > -1) return (T)tablo.GetRow(tablo.FocusedRowHandle);
@@ -158,11 +161,33 @@ namespace AbcYazilim.OgrenciTakip.UI.Win.Functions
         {
             return PrinterSettings.InstalledPrinters.Cast<string>().ToList();
         }
-
         public static string DefaultYazici()
         {
             var settings = new PrinterSettings();
             return settings.PrinterName;
+        }
+        public static void ShowPopupMenu(this MouseEventArgs e, PopupMenu popupMenu)
+        {
+            if (e.Button != MouseButtons.Right) return;
+            popupMenu.ShowPopup(Control.MousePosition);
+        }
+        public static byte[] ResimYukle()
+        {
+            var dialog = new OpenFileDialog {
+            Title = "Resim Seç",
+            Filter = "Resim Dosyaları (*.bmp, *.gif, *.jpg, *.png)|*.bmp; *.gif; *.jpg; *.png|Bmp Dosyaları|*.bmp|GIF Dosyaları|*.gif|Jpg Dosyaları|*.jpg|Png Dosyaları|*.png",
+            InitialDirectory = @"C:\",
+            };
+
+            byte[] Resim()
+            {
+                using (var stream = new MemoryStream())
+                {
+                    Image.FromFile(dialog.FileName).Save(stream,ImageFormat.Png);
+                    return stream.ToArray();
+                }
+            }
+            return dialog.ShowDialog() != DialogResult.OK ? null : Resim();
         }
     }
 }
