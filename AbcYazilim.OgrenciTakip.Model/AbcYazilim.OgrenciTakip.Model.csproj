@@ -85,6 +85,7 @@
     <Compile Include="Entities\Ilce.cs" />
     <Compile Include="Entities\Iletisim.cs" />
     <Compile Include="Entities\Indirim.cs" />
+    <Compile Include="Entities\IndiriminUygulanacağıHizmetBilgileri.cs" />
     <Compile Include="Entities\IndirimTuru.cs" />
     <Compile Include="Entities\IptalNedeni.cs" />
     <Compile Include="Entities\IsYeri.cs" />
