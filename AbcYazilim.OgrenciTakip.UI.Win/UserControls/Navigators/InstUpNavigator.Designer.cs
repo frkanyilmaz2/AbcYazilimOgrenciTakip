@@ -52,9 +52,9 @@
             this.Navigator.Buttons.PrevPage.Visible = false;
             this.Navigator.Buttons.Remove.ImageIndex = 7;
             this.Navigator.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Navigator.Location = new System.Drawing.Point(0, 0);
+            this.Navigator.Location = new System.Drawing.Point(0, -3);
             this.Navigator.Name = "Navigator";
-            this.Navigator.Size = new System.Drawing.Size(558, 24);
+            this.Navigator.Size = new System.Drawing.Size(478, 24);
             this.Navigator.TabIndex = 0;
             this.Navigator.Text = "controlNavigator1";
             // 
@@ -72,19 +72,18 @@
             // 
             // InstUpNavigator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Navigator);
             this.Name = "InstUpNavigator";
-            this.Size = new System.Drawing.Size(558, 24);
+            this.Size = new System.Drawing.Size(478, 21);
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.ControlNavigator Navigator;
         private DevExpress.Utils.ImageCollection imageCollection;
+        protected internal DevExpress.XtraEditors.ControlNavigator Navigator;
     }
 }
